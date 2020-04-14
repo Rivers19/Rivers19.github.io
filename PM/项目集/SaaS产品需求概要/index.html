@@ -1,0 +1,2152 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Rivers Blog">
+      
+      
+        <link rel="canonical" href="https://riversblog.site/PM/项目集/SaaS产品需求概要/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>借贷系统SaaS化 - Rivers Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#saas" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://riversblog.site/" title="Rivers Blog" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Rivers Blog
+            </span>
+            <span class="md-header-nav__topic">
+              
+                借贷系统SaaS化
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Rivers19/Blog/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Rivers19/Blog
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          首页
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../PM笔记/俞军产品方法论/产品经理做什么/" class="md-tabs__link">
+          产品汪
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../Tech/AI/NLP/自然语言处理简介/" class="md-tabs__link">
+          技术
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../MacTools/iTerm2简明使用教程/" class="md-tabs__link">
+          生产力工具
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../about/" class="md-tabs__link">
+          作者
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://riversblog.site/" title="Rivers Blog" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Rivers Blog
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Rivers19/Blog/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Rivers19/Blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      首页
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        首页
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Contents" class="md-nav__link">
+      Contents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      产品汪
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        产品汪
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-1" type="checkbox" id="nav-2-1-1">
+    
+    <label class="md-nav__link" for="nav-2-1-1">
+      产品方法论
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-1">
+        产品方法论
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/俞军产品方法论/产品经理做什么/" title="产品经理做什么" class="md-nav__link">
+      产品经理做什么
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/俞军产品方法论/关于企业用户产品/" title="关于企业、用户、产品" class="md-nav__link">
+      关于企业、用户、产品
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/俞军产品方法论/交易/" title="交易" class="md-nav__link">
+      交易
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/俞军产品方法论/决策/" title="决策" class="md-nav__link">
+      决策
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-2" type="checkbox" id="nav-2-1-2">
+    
+    <label class="md-nav__link" for="nav-2-1-2">
+      高级PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-2">
+        高级PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/P3notes/P3课程笔记1/" title="产品如何从0到1？" class="md-nav__link">
+      产品如何从0到1？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/P3notes/P3课程笔记2/" title="产品经理的方向和格局" class="md-nav__link">
+      产品经理的方向和格局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/P3notes/P3课程笔记3/" title="产品地图与商业产品" class="md-nav__link">
+      产品地图与商业产品
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/P3notes/P3课程笔记4/" title="MVP实战 制作Demo" class="md-nav__link">
+      MVP实战 制作Demo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/P3notes/P3课程笔记5/" title="制作Landing Page" class="md-nav__link">
+      制作Landing Page
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/P3notes/P3课程笔记6/" title="用户调研" class="md-nav__link">
+      用户调研
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/P3notes/P3课程笔记7/" title="商业计划书和路演" class="md-nav__link">
+      商业计划书和路演
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3">
+    
+    <label class="md-nav__link" for="nav-2-1-3">
+      中台PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-3">
+        中台PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/中台/中台PM笔记1/" title="中台PM挑战&中台意义与价值" class="md-nav__link">
+      中台PM挑战&中台意义与价值
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/中台/中台PM笔记2/" title="什么是中台？" class="md-nav__link">
+      什么是中台？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/中台/中台PM笔记3/" title="中台设计与建设" class="md-nav__link">
+      中台设计与建设
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/中台/中台PM笔记4/" title="中台需求分析" class="md-nav__link">
+      中台需求分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/中台/中台PM笔记5/" title="中台竞品分析" class="md-nav__link">
+      中台竞品分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/中台/中台PM笔记6/" title="中台产品设计" class="md-nav__link">
+      中台产品设计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/中台/中台PM笔记7/" title="中台项目管理" class="md-nav__link">
+      中台项目管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/中台/中台PM笔记8/" title="中台产品运营" class="md-nav__link">
+      中台产品运营
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-4" type="checkbox" id="nav-2-1-4">
+    
+    <label class="md-nav__link" for="nav-2-1-4">
+      工具型产品
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-4">
+        工具型产品
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/工具型产品/工具型产品的一些思考/" title="工具型产品的一些思考" class="md-nav__link">
+      工具型产品的一些思考
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-5" type="checkbox" id="nav-2-1-5">
+    
+    <label class="md-nav__link" for="nav-2-1-5">
+      杂文
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-5">
+        杂文
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PM笔记/杂文/张小龙关于信息互联的七点思考/" title="关于信息互联的七点思考——张小龙" class="md-nav__link">
+      关于信息互联的七点思考——张小龙
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
+    
+    <label class="md-nav__link" for="nav-2-2">
+      项目合集
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        项目合集
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../阳光筹/" title="「阳光筹」项目简介" class="md-nav__link">
+      「阳光筹」项目简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../RupiahOne官网/" title="Rupiah One官网设计" class="md-nav__link">
+      Rupiah One官网设计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../RupiahOne项目总结/" title="Rupiah One 项目总结" class="md-nav__link">
+      Rupiah One 项目总结
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        借贷系统SaaS化
+      </label>
+    
+    <a href="./" title="借贷系统SaaS化" class="md-nav__link md-nav__link--active">
+      借贷系统SaaS化
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 技术侧考虑
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 涉及系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 部署形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 整体考虑
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 产品需求概要
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 管理后台端
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 登录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 系统设置:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33_1" class="md-nav__link">
+    3.3 借款管理：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 统计：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-app" class="md-nav__link">
+    4. App端
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 注册登录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 信息采集与验证
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 发起借款申请
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    4.5 支付
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    4.6 客服
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 管理客户的平台
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../China.cn会员后台/" title="China.cn会员后台" class="md-nav__link">
+      China.cn会员后台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../China.cn运营管理平台/" title="China.cn运营管理平台" class="md-nav__link">
+      	China.cn运营管理平台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../觅影/" title="觅影" class="md-nav__link">
+      觅影
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      技术
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        技术
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      AI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        AI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-1" type="checkbox" id="nav-3-1-1">
+    
+    <label class="md-nav__link" for="nav-3-1-1">
+      自然语言处理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-1">
+        自然语言处理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Tech/AI/NLP/自然语言处理简介/" title="自然语言处理简介" class="md-nav__link">
+      自然语言处理简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Tech/AI/NLP/自然语言处理应用/" title="自然语言处理应用" class="md-nav__link">
+      自然语言处理应用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-2" type="checkbox" id="nav-3-1-2">
+    
+    <label class="md-nav__link" for="nav-3-1-2">
+      机器学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-2">
+        机器学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Tech/AI/ML/统计学习及监督学习概论/" title="CH01 统计学习及监督学习概论" class="md-nav__link">
+      CH01 统计学习及监督学习概论
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-3" type="checkbox" id="nav-3-1-3">
+    
+    <label class="md-nav__link" for="nav-3-1-3">
+      语音对话
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-3">
+        语音对话
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Tech/AI/Speech/语音交互基础/" title="语音交互基础" class="md-nav__link">
+      语音交互基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Tech/AI/Speech/基于特定客服领域对话系统的研究与实现/" title="基于特定客服领域对话系统的研究与实现" class="md-nav__link">
+      基于特定客服领域对话系统的研究与实现
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      DataMining
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        DataMining
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-1" type="checkbox" id="nav-3-2-1">
+    
+    <label class="md-nav__link" for="nav-3-2-1">
+      Kaggle
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-1">
+        Kaggle
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Tech/DataMining/Kaggle/数据基础/" title="数据基础" class="md-nav__link">
+      数据基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Tech/DataMining/Kaggle/数据描述/" title="数据描述" class="md-nav__link">
+      数据描述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Tech/DataMining/Kaggle/Kaggle学习笔记/" title="Kaggle 学习笔记" class="md-nav__link">
+      Kaggle 学习笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-2" type="checkbox" id="nav-3-2-2">
+    
+    <label class="md-nav__link" for="nav-3-2-2">
+      SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-2">
+        SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Tech/DataMining/SQL/SQL学习笔记/" title="MySQL in 3 hours" class="md-nav__link">
+      MySQL in 3 hours
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Basic
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Basic
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-1" type="checkbox" id="nav-3-3-1">
+    
+    <label class="md-nav__link" for="nav-3-3-1">
+      Linux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-1">
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Tech/Basic/Linux基础/" title="Linux基础" class="md-nav__link">
+      Linux基础
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-2" type="checkbox" id="nav-3-3-2">
+    
+    <label class="md-nav__link" for="nav-3-3-2">
+      正则表达式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-2">
+        正则表达式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Tech/Basic/正则表达式/" title="正则表达式" class="md-nav__link">
+      正则表达式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      生产力工具
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        生产力工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../MacTools/iTerm2简明使用教程/" title="iTerm2" class="md-nav__link">
+      iTerm2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../MacTools/Typora简明使用教程/" title="Typora" class="md-nav__link">
+      Typora
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../MacTools/Git常用命令清单/" title="常用Git命令" class="md-nav__link">
+      常用Git命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../MacTools/GitHub搜索技巧/" title="GitHub搜索技巧" class="md-nav__link">
+      GitHub搜索技巧
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      作者
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        作者
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/" title="关于作者" class="md-nav__link">
+      关于作者
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 背景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 技术侧考虑
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 涉及系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 部署形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 整体考虑
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 产品需求概要
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 管理后台端
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 登录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 系统设置:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33_1" class="md-nav__link">
+    3.3 借款管理：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 统计：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-app" class="md-nav__link">
+    4. App端
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 注册登录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 信息采集与验证
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 发起借款申请
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    4.5 支付
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    4.6 客服
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 管理客户的平台
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Rivers19/Blog/edit/master/docs/PM/项目集/SaaS产品需求概要.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="saas">借贷系统SaaS化<a class="headerlink" href="#saas" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 背景<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>将我们现有的rupiah one产品（包括app和管理后台）进行SaaS化，售卖给在印尼拿到ojk注册的其它借贷公司。</p>
+<h2 id="2">2. 技术侧考虑<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 涉及系统<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>服务端 </li>
+<li>后台管理理 </li>
+<li>app/h5 </li>
+</ul>
+<h3 id="22">2.2 部署形式<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>借贷公司⾃己购买服务器器，我们把软件售卖给公司 </p>
+<ul>
+<li>优点 ：改造量小 </li>
+<li>缺点： <ul>
+<li>用户需要单独申请第三⽅方SDK、API服务 </li>
+<li>用户需要单独申请银⾏账号 </li>
+<li>app需要根据用户单独打包</li>
+<li>升级麻烦 </li>
+<li>可能有定制化需求，导致代码管理理复杂 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>服务端统⼀维护，通过账号卖给借贷公司 </p>
+<ul>
+<li>优点 ：<ul>
+<li>真正的SaaS，所有用户统⼀</li>
+<li>运维，升级⽅便 </li>
+<li>SaaS用户使用简单，一个账号就可以使⽤服务 </li>
+</ul>
+</li>
+<li>缺点： <ul>
+<li>改造⼯作量⼤，增加一级SaaS用户，所有的数据、操作都要分SaaS用户组织 </li>
+<li>使用第三方SDK、API服务要按SaaS用户分摊</li>
+<li>SaaS⽤户的银行账号需要分摊</li>
+<li>app打包需要结合SaaS账号</li>
+<li>定制化需求难以满足或不满⾜</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>结论 </p>
+<ul>
+<li>印尼的公司有自己买服务器的需求，选⽤第⼀种⽅方案</li>
+<li>第三方SDK、API服务可以统⼀由我们提供 </li>
+<li>支付服务可以由公司自己申请银行账号、对接⽀付;后续也可以考虑把我们包装成⼀个支付代理 </li>
+</ul>
+</li>
+</ol>
+<h3 id="23">2.3 整体考虑<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>服务端 </p>
+<ul>
+<li>
+<p>提供账号配置服务 </p>
+<ul>
+<li>每个公司app启动时先访问配置服务 </li>
+<li>根据公司用户购买的访问返回相应的配置 </li>
+<li>返回baseURL </li>
+</ul>
+</li>
+<li>
+<p>第三⽅方SDK、API调用日志 </p>
+</li>
+<li>平滑升级</li>
+<li>国际化考虑 </li>
+</ul>
+</li>
+<li>
+<p>后台管理理 </p>
+<ul>
+<li>
+<p>有给⽤户公司的后台管理 </p>
+<ul>
+<li>功能模块化</li>
+<li>用户可以选用哪些模块</li>
+</ul>
+</li>
+<li>
+<p>增加了我们⾃己管理公司用户的后台管理</p>
+<ul>
+<li>
+<p>公司信息</p>
+<ul>
+<li>名称、注册时间、... </li>
+<li>
+<p>第三方SDK、API服务调⽤日志展示、导出、对账 </p>
+<ul>
+<li>收⼊入明细、总计</li>
+</ul>
+</li>
+<li>
+<p>状态:启⽤、⽋费、停用</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>国际化考虑 </p>
+</li>
+</ul>
+</li>
+<li>
+<p>app/h5 </p>
+<ul>
+<li>
+<p>启动⼊口改进，结合账号配置服务改动</p>
+</li>
+<li>
+<p>流程优化</p>
+<ul>
+<li>结合第三方服务的用处、我们的⽬的、费用综合考虑</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="24">2.4 问题<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<ol>
+<li>SDK、API服务、银行账号都会有签约主体，现在Finlink主体申请的账号都会移交给现金巴士，所以我们需要有新实体去签约 </li>
+<li>软件国际化这块会有一些翻译需求 </li>
+</ol>
+<h2 id="3">3. 产品需求概要<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 管理后台端<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p><code>保留一个首页</code></p>
+<p>管理后台的使用人员：主要包括</p>
+<ul>
+<li>超管：客户公司高管，拥有全权限，由我们来配置一个初始的账号给客户，比如<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#100;&#109;&#105;&#110;&#64;&#97;&#100;&#109;&#105;&#110;&#46;&#99;&#111;&#109;">&#97;&#100;&#109;&#105;&#110;&#64;&#97;&#100;&#109;&#105;&#110;&#46;&#99;&#111;&#109;</a></li>
+<li>普通用户：拥有部分权限，分为产品、运营（审核）、客服、催收、财务、实习生等角色</li>
+</ul>
+<p>管理后台期望功能：</p>
+<ul>
+<li>登录</li>
+<li>系统设置：用户与角色、参数与规则、费用模板、贷超渠道、短信设置等</li>
+<li>借款管理：审核、电核、放款、催收、客服等</li>
+<li>统计：业务、收益</li>
+</ul>
+<p><code>客户公司的公司名、logo等标志信息需支持配置</code></p>
+<h3 id="32">3.2 登录<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<ol>
+<li>使用用户：上述 超管 和 普通用户</li>
+<li>登录方式：<ul>
+<li>用户名+密码 形式</li>
+<li>支持记住密码</li>
+<li>用户名or密码输错提示</li>
+<li>输完用户名密码可以enter键登录</li>
+</ul>
+</li>
+</ol>
+<h3 id="33">3.3 系统设置:<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<ul>
+<li>用户与角色：<ul>
+<li>新增、修改、删除用户信息</li>
+<li>新增、删除角色；分配（修改）角色权限</li>
+</ul>
+</li>
+<li>参数与规则：<ul>
+<li>新增、修改、删除包括强更APP版本号、放/还款途径、客服账号</li>
+<li><code>产品详情</code></li>
+<li>修改拒绝规则（若引入第三方风控，应该支持修改？）</li>
+<li>新增、修改、删除拒绝类型</li>
+</ul>
+</li>
+<li>费用模板：<ul>
+<li>新增、修改、删除费用模板</li>
+</ul>
+</li>
+<li>贷超渠道：（去掉）<ul>
+<li>新增、修改、删除贷超渠道</li>
+</ul>
+</li>
+<li>短信设置：（可选）<ul>
+<li>新增、修改、删除短信敏感词</li>
+<li>新增、修改、删除短信平台</li>
+<li>新增、修改、删除短信模板</li>
+<li>新增、修改、删除催收短信（保留）：<ul>
+<li>通知类内容：注册、申请成功、放款成功、还款成功、催收（包括逾期提醒）</li>
+<li>类型固定，内容可编辑</li>
+<li>可选择发送途径（站内信、短信）</li>
+</ul>
+</li>
+<li>短信服务商设置  <code>待完善</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="33_1">3.3 借款管理：<a class="headerlink" href="#33_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>借款用户管理：<ul>
+<li>锁定、注销、（取消）拉黑</li>
+</ul>
+</li>
+<li>借款订单管理：<ul>
+<li>借鉴现金巴士Mars</li>
+<li>订单列表：<ul>
+<li>可根据订单状态、创建时间、手机号、身份证号进行筛选和搜索（搜索可选）</li>
+</ul>
+</li>
+<li>订单详情页：<ul>
+<li>“时间线”，标明订单当前所处状态（待审核、待电核、待放款、待还款）</li>
+<li>风控结果：调用第三方风控模型，判断结果放在较明显位置</li>
+<li>用户信息、用户证照、电子合同、操作历史、催收记录、客服记录等以tab页形式集合</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="34">3.4 统计：<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<ul>
+<li>业务统计：<ul>
+<li>用户增长</li>
+<li>不同状态下的订单总数/增长趋势（待审核、带电核、待放款、待还款、）</li>
+<li>漏斗分析：eg.注册&gt;验证1&gt;验证2&gt;验证3&gt;验证4&gt;发起申请&gt;人脸识别&gt;签约&gt;审核通过&gt;电核通过&gt;放款通过&gt;还款成功</li>
+<li>催收统计：<ul>
+<li>待催收订单数量</li>
+<li>逾期时长分布</li>
+<li>催回情况</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>收益统计：<ul>
+<li>放款金额</li>
+<li>坏账金额</li>
+<li>收入（服务费+利息）</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-app">4. App端<a class="headerlink" href="#4-app" title="Permanent link">&para;</a></h2>
+<p>App的使用者：有借款需求的印尼民众</p>
+<p>App支持功能：</p>
+<ul>
+<li>注册登录</li>
+<li>信息采集与验证：包括用户个人填写和用户授权机器抓取</li>
+<li>发起借款申请</li>
+<li>支付</li>
+<li>客服</li>
+</ul>
+<p><code>支持客户配置：App的logo、名称、皮肤？</code></p>
+<p>App端 哪些归原生、哪些归h5要划清</p>
+<h3 id="41">4.1 注册登录<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<ul>
+<li>登录方式：手机号+验证码（图片验证码、短信验证码）</li>
+</ul>
+<h3 id="42">4.2 信息采集与验证<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<ul>
+<li>个人基本信息</li>
+<li>工作信息</li>
+<li>联系人信息</li>
+<li>证照信息</li>
+<li>银行信息</li>
+</ul>
+<h3 id="43">4.3 发起借款申请<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<h3 id="45">4.5 支付<a class="headerlink" href="#45" title="Permanent link">&para;</a></h3>
+<ul>
+<li>集成第三方支付、银行</li>
+</ul>
+<h3 id="46">4.6 客服<a class="headerlink" href="#46" title="Permanent link">&para;</a></h3>
+<ul>
+<li>电话联系</li>
+<li>留言信息</li>
+</ul>
+<h2 id="5">5. 管理客户的平台<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>客户的信息</li>
+<li>名称、logo、流量</li>
+<li>第三方账号（api、短信服务商）</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../RupiahOne项目总结/" title="Rupiah One 项目总结" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                Rupiah One 项目总结
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../China.cn会员后台/" title="China.cn会员后台" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                China.cn会员后台
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            <a href='http://www.beian.miit.gov.cn'target='_blank'>京ICP备19046279号-1</a>
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.c648116f.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="../../../js/extra.js"></script>
+      
+        <script src="../../../js/baidu-tongji.js"></script>
+      
+        <script src="../../../js/umlconvert.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+    
+  </body>
+</html>

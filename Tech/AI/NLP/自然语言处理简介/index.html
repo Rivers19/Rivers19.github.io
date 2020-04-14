@@ -1,0 +1,2241 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Rivers Blog">
+      
+      
+        <link rel="canonical" href="https://riversblog.site/Tech/AI/NLP/自然语言处理简介/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>自然语言处理简介 - Rivers Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://riversblog.site/" title="Rivers Blog" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Rivers Blog
+            </span>
+            <span class="md-header-nav__topic">
+              
+                自然语言处理简介
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Rivers19/Blog/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Rivers19/Blog
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../.." class="md-tabs__link">
+          首页
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../PM/PM笔记/俞军产品方法论/产品经理做什么/" class="md-tabs__link">
+          产品汪
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          技术
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../MacTools/iTerm2简明使用教程/" class="md-tabs__link">
+          生产力工具
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../about/" class="md-tabs__link">
+          作者
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://riversblog.site/" title="Rivers Blog" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Rivers Blog
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Rivers19/Blog/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Rivers19/Blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      首页
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        首页
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Contents" class="md-nav__link">
+      Contents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      产品汪
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        产品汪
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-1" type="checkbox" id="nav-2-1-1">
+    
+    <label class="md-nav__link" for="nav-2-1-1">
+      产品方法论
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-1">
+        产品方法论
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/俞军产品方法论/产品经理做什么/" title="产品经理做什么" class="md-nav__link">
+      产品经理做什么
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/俞军产品方法论/关于企业用户产品/" title="关于企业、用户、产品" class="md-nav__link">
+      关于企业、用户、产品
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/俞军产品方法论/交易/" title="交易" class="md-nav__link">
+      交易
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/俞军产品方法论/决策/" title="决策" class="md-nav__link">
+      决策
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-2" type="checkbox" id="nav-2-1-2">
+    
+    <label class="md-nav__link" for="nav-2-1-2">
+      高级PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-2">
+        高级PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记1/" title="产品如何从0到1？" class="md-nav__link">
+      产品如何从0到1？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记2/" title="产品经理的方向和格局" class="md-nav__link">
+      产品经理的方向和格局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记3/" title="产品地图与商业产品" class="md-nav__link">
+      产品地图与商业产品
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记4/" title="MVP实战 制作Demo" class="md-nav__link">
+      MVP实战 制作Demo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记5/" title="制作Landing Page" class="md-nav__link">
+      制作Landing Page
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记6/" title="用户调研" class="md-nav__link">
+      用户调研
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记7/" title="商业计划书和路演" class="md-nav__link">
+      商业计划书和路演
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3">
+    
+    <label class="md-nav__link" for="nav-2-1-3">
+      中台PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-3">
+        中台PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记1/" title="中台PM挑战&中台意义与价值" class="md-nav__link">
+      中台PM挑战&中台意义与价值
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记2/" title="什么是中台？" class="md-nav__link">
+      什么是中台？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记3/" title="中台设计与建设" class="md-nav__link">
+      中台设计与建设
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记4/" title="中台需求分析" class="md-nav__link">
+      中台需求分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记5/" title="中台竞品分析" class="md-nav__link">
+      中台竞品分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记6/" title="中台产品设计" class="md-nav__link">
+      中台产品设计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记7/" title="中台项目管理" class="md-nav__link">
+      中台项目管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记8/" title="中台产品运营" class="md-nav__link">
+      中台产品运营
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-4" type="checkbox" id="nav-2-1-4">
+    
+    <label class="md-nav__link" for="nav-2-1-4">
+      工具型产品
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-4">
+        工具型产品
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/工具型产品/工具型产品的一些思考/" title="工具型产品的一些思考" class="md-nav__link">
+      工具型产品的一些思考
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-5" type="checkbox" id="nav-2-1-5">
+    
+    <label class="md-nav__link" for="nav-2-1-5">
+      杂文
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-5">
+        杂文
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/杂文/张小龙关于信息互联的七点思考/" title="关于信息互联的七点思考——张小龙" class="md-nav__link">
+      关于信息互联的七点思考——张小龙
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      项目合集
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        项目合集
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/阳光筹/" title="「阳光筹」项目简介" class="md-nav__link">
+      「阳光筹」项目简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/RupiahOne官网/" title="Rupiah One官网设计" class="md-nav__link">
+      Rupiah One官网设计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/RupiahOne项目总结/" title="Rupiah One 项目总结" class="md-nav__link">
+      Rupiah One 项目总结
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/SaaS产品需求概要/" title="借贷系统SaaS化" class="md-nav__link">
+      借贷系统SaaS化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/China.cn会员后台/" title="China.cn会员后台" class="md-nav__link">
+      China.cn会员后台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/China.cn运营管理平台/" title="China.cn运营管理平台" class="md-nav__link">
+      	China.cn运营管理平台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/觅影/" title="觅影" class="md-nav__link">
+      觅影
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      技术
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        技术
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
+    
+    <label class="md-nav__link" for="nav-3-1">
+      AI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        AI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-1" type="checkbox" id="nav-3-1-1" checked>
+    
+    <label class="md-nav__link" for="nav-3-1-1">
+      自然语言处理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-1">
+        自然语言处理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        自然语言处理简介
+      </label>
+    
+    <a href="./" title="自然语言处理简介" class="md-nav__link md-nav__link--active">
+      自然语言处理简介
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 基本概念
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 什么是自然语言处理？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 自然语言处理与机器翻译
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 历史发展
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 起步阶段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-1980s" class="md-nav__link">
+    2.2 1980s以来发展趋势
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-21" class="md-nav__link">
+    2.2.1 21世纪
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    2.2.2 自然语言处理应用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    2.2.3 深度学习的促进
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224" class="md-nav__link">
+    2.2.4 现在正面临着新的挑战和机遇
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 自然语言处理主要范畴
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-nlp" class="md-nav__link">
+    4. 中文NLP任务的一般步骤
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 获取语料
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 语料预处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 特征工程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    4.4 特征选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    4.5 模型训练
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    4.6 评价指标
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    4.7 模型上线应用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 自然语言处理主要难点
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1 消歧问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511" class="md-nav__link">
+    5.1.1 语言中充满了大量的歧义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512" class="md-nav__link">
+    5.1.2 消歧的困难
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5121" class="md-nav__link">
+    5.1.2.1 上下文知识的获取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5122" class="md-nav__link">
+    5.1.2.2 背景知识问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 自然语言处理的思路
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 基于规则的理性主义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    6.2 基于统计的经验主义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    6.3 问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7. 与计算机视觉相比，自然语言有何特点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-nlp-vs-nlp-nlp" class="md-nav__link">
+    8. 中文NLP vs 英文NLP在理论、处理上的异同点, 中文 NLP有何独特之处
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9. 参考资料
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../自然语言处理应用/" title="自然语言处理应用" class="md-nav__link">
+      自然语言处理应用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-2" type="checkbox" id="nav-3-1-2">
+    
+    <label class="md-nav__link" for="nav-3-1-2">
+      机器学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-2">
+        机器学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/统计学习及监督学习概论/" title="CH01 统计学习及监督学习概论" class="md-nav__link">
+      CH01 统计学习及监督学习概论
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-3" type="checkbox" id="nav-3-1-3">
+    
+    <label class="md-nav__link" for="nav-3-1-3">
+      语音对话
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-3">
+        语音对话
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Speech/语音交互基础/" title="语音交互基础" class="md-nav__link">
+      语音交互基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Speech/基于特定客服领域对话系统的研究与实现/" title="基于特定客服领域对话系统的研究与实现" class="md-nav__link">
+      基于特定客服领域对话系统的研究与实现
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      DataMining
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        DataMining
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-1" type="checkbox" id="nav-3-2-1">
+    
+    <label class="md-nav__link" for="nav-3-2-1">
+      Kaggle
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-1">
+        Kaggle
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DataMining/Kaggle/数据基础/" title="数据基础" class="md-nav__link">
+      数据基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DataMining/Kaggle/数据描述/" title="数据描述" class="md-nav__link">
+      数据描述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DataMining/Kaggle/Kaggle学习笔记/" title="Kaggle 学习笔记" class="md-nav__link">
+      Kaggle 学习笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-2" type="checkbox" id="nav-3-2-2">
+    
+    <label class="md-nav__link" for="nav-3-2-2">
+      SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-2">
+        SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DataMining/SQL/SQL学习笔记/" title="MySQL in 3 hours" class="md-nav__link">
+      MySQL in 3 hours
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Basic
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Basic
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-1" type="checkbox" id="nav-3-3-1">
+    
+    <label class="md-nav__link" for="nav-3-3-1">
+      Linux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-1">
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Basic/Linux基础/" title="Linux基础" class="md-nav__link">
+      Linux基础
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-2" type="checkbox" id="nav-3-3-2">
+    
+    <label class="md-nav__link" for="nav-3-3-2">
+      正则表达式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-2">
+        正则表达式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Basic/正则表达式/" title="正则表达式" class="md-nav__link">
+      正则表达式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      生产力工具
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        生产力工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/iTerm2简明使用教程/" title="iTerm2" class="md-nav__link">
+      iTerm2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/Typora简明使用教程/" title="Typora" class="md-nav__link">
+      Typora
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/Git常用命令清单/" title="常用Git命令" class="md-nav__link">
+      常用Git命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/GitHub搜索技巧/" title="GitHub搜索技巧" class="md-nav__link">
+      GitHub搜索技巧
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      作者
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        作者
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/" title="关于作者" class="md-nav__link">
+      关于作者
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 基本概念
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 什么是自然语言处理？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 自然语言处理与机器翻译
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 历史发展
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 起步阶段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-1980s" class="md-nav__link">
+    2.2 1980s以来发展趋势
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-21" class="md-nav__link">
+    2.2.1 21世纪
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    2.2.2 自然语言处理应用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    2.2.3 深度学习的促进
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224" class="md-nav__link">
+    2.2.4 现在正面临着新的挑战和机遇
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 自然语言处理主要范畴
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-nlp" class="md-nav__link">
+    4. 中文NLP任务的一般步骤
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 获取语料
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 语料预处理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 特征工程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    4.4 特征选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    4.5 模型训练
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46" class="md-nav__link">
+    4.6 评价指标
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47" class="md-nav__link">
+    4.7 模型上线应用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 自然语言处理主要难点
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1 消歧问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511" class="md-nav__link">
+    5.1.1 语言中充满了大量的歧义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512" class="md-nav__link">
+    5.1.2 消歧的困难
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5121" class="md-nav__link">
+    5.1.2.1 上下文知识的获取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5122" class="md-nav__link">
+    5.1.2.2 背景知识问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 自然语言处理的思路
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 基于规则的理性主义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    6.2 基于统计的经验主义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    6.3 问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7. 与计算机视觉相比，自然语言有何特点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-nlp-vs-nlp-nlp" class="md-nav__link">
+    8. 中文NLP vs 英文NLP在理论、处理上的异同点, 中文 NLP有何独特之处
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9. 参考资料
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Rivers19/Blog/edit/master/docs/Tech/AI/NLP/自然语言处理简介.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="_1">自然语言处理简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 基本概念<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 什么是自然语言处理？<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>自然语言处理（Natural Language Processing，简称NLP）就是用计算机来处理、理解以及运用人类语言(如中文、英文等)，它属于人工智能的一个分支，是计算机科学与语言学的交叉学科，又常被称为计算语言学。由于自然语言是人类区别于其他动物的根本标志。</p>
+<p>没有语言，人类的思维也就无从谈起，所以自然语言处理体现了人工智能的最高任务与境界，也就是说，只有当计算机具备了处理自然语言的能力时，机器才算实现了真正的智能。</p>
+<h3 id="12">1.2 自然语言处理与机器翻译<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>自然语言处理的兴起与机器翻译这一具体任务有着密切联系。机器翻译指的是利用计算机自动地将一种自然语言翻译为另外一种自然语言。例如自动将英文“I like Beijing Tiananmen Square”翻译为“我爱北京天安门”，或者反过来将“我爱北京天安门”翻译为“I like Beijing Tiananmen Square”。由于人工进行翻译需要训练有素的双语专家，翻译工作非常耗时耗力。更不用说需要翻译一些专业领域文献时，还需要翻译者了解该领域的基本知识。世界上有超过几千种语言，而仅联合国的工作语言就有六种之多。如果能够通过机器翻译准确地进行语言间的翻译，将大大提高人类沟通和了解的效率。</p>
+<p>《圣经》里有一个故事说巴比伦人想建造一座塔直通天堂。建塔的人都说着同一种语言，心意相通、齐心协力。上帝看到人类竟然敢做这种事情，就让他们的语言变得不一样。因为人们听不懂对方在讲什么，于是大家整天吵吵闹闹，无法继续建塔。后来人们把这座塔叫作巴别塔，而“巴别”的意思就是“分歧”。虽然巴别塔停建了，但一个梦想却始终萦绕在人们心中：人类什么时候才能拥有相通的语言，重建巴别塔呢？机器翻译被视为“重建巴别塔”的伟大创举。假如能够实现不同语言之间的机器翻译，我们就可以理解世界上任何人说的话，与他们进行交流和沟通，再也不必为相互不能理解而困扰。</p>
+<p>事实上，“人工智能”被作为一个研究问题正式提出来的时候，创始人把计算机国际象棋和机器翻译作为两个标志性的任务，认为只要国际象棋系统能够打败人类世界冠军，机器翻译系统达到人类翻译水平，就可以宣告人工智能的胜利。四十年后的1997年，IBM公司的深蓝超级计算机已经能够打败国际象棋世界冠军卡斯帕罗夫。而机器翻译到现在仍无法与人类翻译水平相比，从此可以看出自然语言处理有多么困难！</p>
+<h2 id="2">2. 历史发展<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 起步阶段<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>1954年的<a href="https://zh.wikipedia.org/w/index.php?title=喬治城實驗&amp;action=edit&amp;redlink=1">乔治城实验</a>涉及全部<a href="https://zh.wikipedia.org/w/index.php?title=自動翻譯&amp;action=edit&amp;redlink=1">自动翻译</a>超过60句俄文成为英文。研究人员声称三到五年之内即可解决机器翻译的问题。不过实际进展远低于预期，1966年的<a href="https://zh.wikipedia.org/w/index.php?title=ALPAC報告&amp;action=edit&amp;redlink=1">ALPAC报告</a>发现十年研究未达预期目标，机器翻译的研究经费遭到大幅削减。一直到1980年代末期，<a href="https://zh.wikipedia.org/wiki/统计机器翻译">统计机器翻译</a>系统发展出来，机器翻译的研究才得以更上一层楼。</p>
+<p>1960年代发展特别成功的NLP系统包括<a href="https://zh.wikipedia.org/w/index.php?title=SHRDLU&amp;action=edit&amp;redlink=1">SHRDLU</a>——一个词汇设限、运作于受限如“<a href="https://zh.wikipedia.org/wiki/積木世界">积木世界</a>”的一种自然语言系统，以及1964-1966年<a href="https://zh.wikipedia.org/wiki/约瑟夫·维森鲍姆">约瑟夫·维森鲍姆</a>模拟“<a href="https://zh.wikipedia.org/wiki/個人中心治療">个人中心治疗</a>”而设计的<a href="https://zh.wikipedia.org/w/index.php?title=ELIZA&amp;action=edit&amp;redlink=1">ELIZA</a>——几乎未运用人类思想和感情的消息，有时候却能呈现令人讶异地类似人之间的交互。“病人”提出的问题超出ELIZA 极小的知识范围之时，可能会得到空泛的回答。例如问题是“我的头痛”，回答是“为什么说你头痛？”</p>
+<p>1970年代，程序员开始设计“概念本体论”（conceptual ontologies）的程序，将现实世界的信息，架构成计算机能够理解的数据。实例有MARGIE、SAM、PAM、TaleSpin、QUALM、Politics以及Plot Unit。许多<a href="https://zh.wikipedia.org/wiki/聊天機器人">聊天机器人</a>在这一时期写成，包括<a href="https://zh.wikipedia.org/w/index.php?title=PARRY&amp;action=edit&amp;redlink=1">PARRY</a> 、<a href="https://zh.wikipedia.org/w/index.php?title=Racter&amp;action=edit&amp;redlink=1">Racter</a> 以及<a href="https://zh.wikipedia.org/w/index.php?title=Jabberwacky&amp;action=edit&amp;redlink=1">Jabberwacky</a> 。</p>
+<h3 id="22-1980s">2.2 1980s以来发展趋势<a class="headerlink" href="#22-1980s" title="Permanent link">&para;</a></h3>
+<p>二十世纪八十年代以来的趋势就是，基于语言规则的理性主义方法不断受到质疑，大规模语言数据处理成为目前和未来一段时期内自然语言处理的主要研究目标。统计学习方法越来越受到重视，自然语言处理中越来越多地使用机器自动学习的方法来获取语言知识。</p>
+<h4 id="221-21">2.2.1 21世纪<a class="headerlink" href="#221-21" title="Permanent link">&para;</a></h4>
+<p>迈进21世纪，我们已经进入了以互联网为主要标志的海量信息时代，这些海量信息大部分是以自然语言表示的。一方面，海量信息也为计算机学习人类语言提供了更多的“素材”，另一方面，这也为自然语言处理提供了更加宽广的应用舞台。</p>
+<h4 id="222">2.2.2 自然语言处理应用<a class="headerlink" href="#222" title="Permanent link">&para;</a></h4>
+<ul>
+<li>搜索引擎逐渐成为人们获取信息的重要工具，涌现出以百度、谷歌等为代表的搜索引擎巨头；</li>
+<li>机器翻译也从实验室走入寻常百姓家，谷歌、百度等公司都提供了基于海量网络数据的机器翻译和辅助翻译工具；</li>
+<li>基于自然语言处理的中文（输入法如搜狗、微软、谷歌等输入法）成为计算机用户的必备工具；</li>
+<li>带有语音识别的计算机和手机也正大行其道，协助用户更有效地工作学习。</li>
+</ul>
+<p>总之，随着互联网的普及和海量信息的涌现，自然语言处理正在人们的日常生活中扮演着越来越重要的作用。然而，面向海量的大规模文本数据，人们面临的一个严峻事实是，如何有效利用海量信息，人们逐渐意识到，单纯依靠统计方法已经无法快速有效地从海量数据中学习语言知识。</p>
+<h4 id="223">2.2.3 深度学习的促进<a class="headerlink" href="#223" title="Permanent link">&para;</a></h4>
+<p>随着2013年word2vec技术的发表，以神经网络为基础的深度学习技术开始在自然语言处理中广泛使用，深度学习的分布式语义表示和多层网络架构具有强大的拟合和学习能力，显著提升了自然语言处理各种任务的性能，成为现阶段自然语言处理的主要技术方案。</p>
+<p>深度学习是纯的数据驱动技术方案，需要从大规模标注数据中学习特定任务相关的复杂模式。一方面，有些学者开始探索面向大规模无标注文本数据的深度学习模型，如ELMo，GPT、BERT等，可以看做从大规模数据中学习知识的极致探索；另一方面，现有深度学习技术尚未考虑人类积累的丰富知识（包括语言知识、世界知识、常识知识、认知知识、行业知识等），如果将深度学习看做经验主义方法，将符号知识看做理性主义方法，那么如何充分发挥基于规则的理性主义方法和基于统计的经验主义方法的优势，两者互相补充，更好、更快地进行自然语言处理，仍然是我们需要探索的重要课题。</p>
+<p>自然语言处理作为一个年龄尚不足一个世纪的新兴学科，正在进行着突飞猛进的发展。回顾自然语言处理的发展历程，并不是一帆风顺，有过低谷，也有过高潮。</p>
+<h4 id="224">2.2.4 现在正面临着新的挑战和机遇<a class="headerlink" href="#224" title="Permanent link">&para;</a></h4>
+<p>例如，目前网络搜索引擎基本上还停留在关键词匹配，缺乏深层次的自然语言处理和理解。语音识别、文字识别、问答系统、机器翻译等目前也只能达到很基本的水平。路漫漫其修远兮，自然语言处理作为一个高度交叉的新兴学科，不论是探究自然本质还是付诸实际应用，在将来必定会有令人期待的惊喜和异常快速的发展。</p>
+<h2 id="3">3. 自然语言处理主要范畴<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://zh.wikipedia.org/w/index.php?title=文本朗讀&amp;action=edit&amp;redlink=1">文本朗读</a>（Text to speech）/<a href="https://zh.wikipedia.org/wiki/語音合成">语音合成</a>（Speech synthesis）</li>
+<li><a href="https://zh.wikipedia.org/wiki/語音識別">语音识别</a>（Speech recognition）</li>
+<li><a href="https://zh.wikipedia.org/wiki/中文自动分词">中文自动分词</a>（Chinese word segmentation）</li>
+<li><a href="https://zh.wikipedia.org/w/index.php?title=词性标注&amp;action=edit&amp;redlink=1">词性标注</a>（Part-of-speech tagging）</li>
+<li><a href="https://zh.wikipedia.org/w/index.php?title=句法分析&amp;action=edit&amp;redlink=1">句法分析</a>（Parsing）</li>
+<li><a href="https://zh.wikipedia.org/wiki/自然語言生成">自然语言生成</a>（Natural language generation）</li>
+<li><a href="https://zh.wikipedia.org/w/index.php?title=文本分类&amp;action=edit&amp;redlink=1">文本分类</a>（Text categorization）</li>
+<li><a href="https://zh.wikipedia.org/wiki/信息检索">信息检索</a>（Information retrieval）</li>
+<li><a href="https://zh.wikipedia.org/wiki/信息抽取">信息抽取</a>（Information extraction）</li>
+<li><a href="https://zh.wikipedia.org/wiki/校對">文字校对</a>（Text-proofing）</li>
+<li>
+<p><a href="https://zh.wikipedia.org/wiki/問答系統">问答系统</a>（Question answering）</p>
+<ul>
+<li>给一句人类语言的问句，决定其答案。 典型问题有特定答案 (像是加拿大的首都叫什么?)，但也考虑些开放式问句(像是人生的意义是是什么?)</li>
+</ul>
+</li>
+<li>
+<p><a href="https://zh.wikipedia.org/wiki/機器翻譯">机器翻译</a>（Machine translation）</p>
+</li>
+<li>
+<p><a href="https://zh.wikipedia.org/w/index.php?title=自動摘要&amp;action=edit&amp;redlink=1">自动摘要</a>（Automatic summarization）</p>
+<ul>
+<li>产生一段文字的大意，通常用于提供已知领域的文章摘要，例如产生报纸上某篇文章之摘要</li>
+</ul>
+</li>
+<li>
+<p><a href="https://zh.wikipedia.org/wiki/文字蘊涵">文字蕴涵</a>（Textual entailment）</p>
+</li>
+<li><a href="https://zh.wikipedia.org/wiki/命名实体识别">命名实体识别</a>（Named entity recognition）</li>
+</ul>
+<h2 id="4-nlp">4. 中文NLP任务的一般步骤<a class="headerlink" href="#4-nlp" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 获取语料<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>语料，即语言材料，是NLP任务所研究的内容。通常情况下，用一个文本集合作为语料库(Corpus，<em>指经科学取样和加工的大规模电子文本库。借助计算机分析工具，研究者可开展相关的语言理论及应用研究</em>)。语料的来源一般可分为三类，一是已有的语料，比如积累的文档；二是下载的语料，比如搜狗语料，人民日报语料；三是从网络上抓取的语料。</p>
+<h3 id="42">4.2 语料预处理<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>语料的预处理一般分为，1.语料清洗，去除噪音数据；2.分词，将文本分成词语；3.词性标注，使用基于规则或基于统计的标注方法给词语打上词类标签，如名词、动词、形容词等；4.去除停用词，去掉诸如标点符号、语气、人称等对文本特征没有任何贡献作用的字词。</p>
+<h3 id="43">4.3 特征工程<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p>特征工程的主要目的是把分词表示成计算机能够计算的类型，一般为向量。常用的表示模型包括词袋模型（Bag of Word,BOW）、词向量（One-hot、Word2Vec）。</p>
+<h3 id="44">4.4 特征选择<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
+<p>特征选择，(feature selection）也被称为 <strong>变量选择</strong> 、<strong>属性选择</strong> 或 <strong>变量子集选择</strong>  。它是指：为了构建模型而选择相关特征（即属性、指标）子集的过程。使用特征选择技术有三个原因：1.简化模型，使之更易于被研究人员或用户理解; 2.缩短训练时间；3.改善通用性、降低过拟合。因此在进行特征选择时，要选择合适的，表达能力强的特征。常见的特征选择方法有DF、MI、IG、CHI、WLLR、WFO等。</p>
+<h3 id="45">4.5 模型训练<a class="headerlink" href="#45" title="Permanent link">&para;</a></h3>
+<p>模型训练阶段，主要考虑选择一般的机器学习模型还是深度学习模型。常用的机器学习模型包括KNN、SVM、Navie Bayes、决策树、GBDT、K-means等。基本的深度模型则包括CNN、RNN、LSTM、Seq2Seq、FastText、TextCNN等。</p>
+<p>模型训练过程重点关注过拟合（在训练集上表现很好，但在测试集上表现很差）和欠拟合（模型不能很好地拟合数据）问题。</p>
+<p>同时需注意梯度消失和梯度爆炸问题。</p>
+<h3 id="46">4.6 评价指标<a class="headerlink" href="#46" title="Permanent link">&para;</a></h3>
+<p>一般地，评价指标有错误率、准确率、精度、精确度、召回率、F1衡量</p>
+<h3 id="47">4.7 模型上线应用<a class="headerlink" href="#47" title="Permanent link">&para;</a></h3>
+<p>一般有两种，1是线下训练模型，然后将模型部署线上，2是在线训练，在训练完成后将模型pickle持久化</p>
+<h2 id="5">5. 自然语言处理主要难点<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 消歧问题<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<p>词法分析、句法分析、语义分析等过程中存在的歧义问题，简称为消歧。而正确的消歧需要大量的知识，包括语言学知识（如词法、句法、语义、上下文等）和世界知识（与语言无关）。这带来自然语言处理的两个主要困难。</p>
+<h4 id="511">5.1.1 语言中充满了大量的歧义<a class="headerlink" href="#511" title="Permanent link">&para;</a></h4>
+<p>这主要体现在词法、句法及语义三个层次上。歧义的产生是由于自然语言所描述的对象――人类活动非常复杂，而语言的词汇和句法规则又是有限的，这就造成同一种语言形式可能具有多种含义。</p>
+<p>例如单词定界问题是属于词法层面的消歧任务。在口语中，词与词之间通常是连贯说出来的。在书面语中，中文等语言也没有词与词之间的边界。由于单词是承载语义的最小单元，要解决自然语言处理，单词的边界界定问题首当其冲。特别是中文文本通常由连续的字序列组成，词与词之间缺少天然的分隔符，因此中文信息处理比英文等西方语言多一步工序，即确定词的边界，我们称为“中文自动分词”任务。通俗的说就是要由计算机在词与词之间自动加上分隔符，从而将中文文本切分为独立的单词。例如一个句子“今天天气晴朗”的带有分隔符的切分文本是“今天|天气|晴朗”。中文自动分词处于中文自然语言处理的底层，是公认的中文信息处理的第一道工序，扮演着重要的角色，主要存在新词发现和歧义切分等问题。我们注意到：正确的单词切分取决于对文本语义的正确理解，而单词切分又是理解语言的最初的一道工序。这样的一个“鸡生蛋、蛋生鸡”的问题自然成了（中文）自然语言处理的第一条拦路虎。</p>
+<p>其他级别的语言单位也存在着各种歧义问题。例如在短语级别上，“进口彩电”可以理解为动宾关系（从国外进口了一批彩电），也可以理解为偏正关系（从国外进口的彩电）。又如在句子级别上，“做手术的是她的父亲”可以理解为她父亲生病了需要做手术，也可以理解为她父亲是医生，帮别人做手术。总之，同样一个单词、短语或者句子有多种可能的理解，表示多种可能的语义。如果不能解决好各级语言单位的歧义问题，我们就无法正确理解语言要表达的意思。</p>
+<h4 id="512">5.1.2 消歧的困难<a class="headerlink" href="#512" title="Permanent link">&para;</a></h4>
+<p>消除歧义所需要的知识在获取、表达以及运用上存在困难。由于语言处理的复杂性，合适的语言处理方法和模型难以设计。</p>
+<h5 id="5121">5.1.2.1 上下文知识的获取<a class="headerlink" href="#5121" title="Permanent link">&para;</a></h5>
+<p>在试图理解一句话的时候，即使不存在歧义问题，我们也往往需要考虑上下文的影响。所谓的“上下文”指的是当前所说这句话所处的语言环境，例如说话人所处的环境，或者是这句话的前几句话或者后几句话，等等。假如当前这句话中存在指代词的时候，我们需要通过这句话前面的句子来推断这个指代词是指的什么。我们以“小明欺负小亮，因此我批评了他”为例。在其中的第二句话中的“他”是指代“小明”还是“小亮”呢？要正确理解这句话，我们就要理解上句话“小明欺负小亮”意味着“小明”做得不对，因此第二句中的“他”应当指代的是“小明”。由于上下文对于当前句子的暗示形式是多种多样的，因此如何考虑上下文影响问题是自然语言处理中的主要困难之一。</p>
+<h5 id="5122">5.1.2.2 背景知识问题<a class="headerlink" href="#5122" title="Permanent link">&para;</a></h5>
+<p>正确理解人类语言还要有足够的背景知识。举一个简单的例子，在机器翻译研究的初期，人们经常举一个例子来说明机器翻译任务的艰巨性。在英语中“The spirit is willing but the flesh is weak.”，意思是“心有余而力不足”。但是当时的某个机器翻译系统将这句英文翻译到俄语，然后再翻译回英语的时候，却变成了“The Voltka is strong but the meat is rotten.”，意思是“伏特加酒是浓的，但肉却腐烂了”。从字面意义上看，“spirit”（烈性酒）与“Voltka”（伏特加）对译似无问题，而“flesh”和“meat”也都有肉的意思。那么这两句话在意义上为什么会南辕北辙呢？关键的问题就在于在翻译的过程中，机器翻译系统对于英语成语并无了解，仅仅是从字面上进行翻译，结果自然失之毫厘，差之千里。</p>
+<p>从上面的两个方面的主要困难，我们看到自然语言处理这个难题的根源就是人类语言的复杂性和语言描述的外部世界的复杂性。人类语言承担着人类表达情感、交流思想、传播知识等重要功能，因此需要具备强大的灵活性和表达能力，而理解语言所需要的知识又是无止境的。那么目前人们是如何尝试进行自然语言处理的呢？</p>
+<h2 id="6">6. 自然语言处理的思路<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>目前人们主要通过两种思路来进行自然语言处理，一种是基于规则的理性主义，另外一种是基于统计的经验主义。</p>
+<h3 id="61">6.1 基于规则的理性主义<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<p>理性主义方法认为，人类语言主要是由语言规则来产生和描述的，因此只要能够用适当的形式将人类语言规则表示出来，就能够理解人类语言，并实现语言之间的翻译等各种自然语言处理任务。</p>
+<h3 id="62">6.2 基于统计的经验主义<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<p>经验主义方法则认为，从语言数据中获取语言统计知识，有效建立语言的统计模型。因此只要能够有足够多的用于统计的语言数据，就能够理解人类语言。</p>
+<h3 id="63">6.3 问题<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
+<p>当面对现实世界充满模糊与不确定性时，这两种方法都面临着各自无法解决的问题。例如，人类语言虽然有一定的规则，但是在真实使用中往往伴随大量的噪音和不规范性。理性主义方法的一大弱点就是鲁棒性差，只要与规则稍有偏离便无法处理。而对于经验主义方法而言，又不能无限地获取语言数据进行统计学习，因此也不能够完美地理解人类语言。</p>
+<h2 id="7">7. 与计算机视觉相比，自然语言有何特点<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>从图像和语言两种模态来看，对文本处理技术的大规模应用要早于计算机视觉。将图像和语言中的处理对象做一个不太严谨的对应。如下图所示，大体上像素类似于语言中的字母；图像中的对象类似于语言中的单词/概念；图像中对象组成的场景类似于语言中的句子表达的语义；视频则类似于语言中的篇章（文章）。</p>
+<p><img alt="image-20191009182010011" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-09-102010.png" /></p>
+<p>在这种类比下看，NLP/IR在单词层面的处理要比CV中的图像识别简单得多，只需要做一下tokenization、lemmatization、stemming等（中文复杂一些需要额外做自动分词），就可以利用关键词匹配完成很多任务，例如信息检索、文本分类、拼写纠错、情感分析、关键词提取等等，实际上已经得到非常广泛的应用，如搜索引擎、拼音输入法、新闻分类、阅读推荐等。</p>
+<p>而由于图像中对象的复杂性和多样性，仅在对象识别层面，甚至特定的人脸识别，还有很多技术挑战。只不过是近年来，由于深度学习对非结构数据的强大表示和学习能力，开始让对象识别走向了实用化。</p>
+<p>而进入到更高层面，例如面向图像的场景图构建，面向文本的句法语义分析，都需要对复杂语境（上下文）的精准而强大的建模能力。所以我感觉，并非NLP发展缓慢，只是两个领域的发展节奏和阶段不同。进入高层任务后，两个领域都将面临共同的关键挑战，都可以归结为复杂语境下的多对象（图像中是不同对象，文本中是不同概念）的语义组合问题。</p>
+<h2 id="8-nlp-vs-nlp-nlp">8. 中文NLP vs 英文NLP在理论、处理上的异同点, 中文 NLP有何独特之处<a class="headerlink" href="#8-nlp-vs-nlp-nlp" title="Permanent link">&para;</a></h2>
+<p>从实用文本分析技术而言，如果只做主题聚类、文本分类等任务的话，中英文最大差别就在于，中文需要做自动分词，相关工具包已经很多了，包括题主提到的Jieba，还有哈工大的LTP，北理工的ICTCLAS，还有我们组研制的THULAC。当然，在文本分类时，到底是选词还是Ngram作为特征，在SVM+BOW时代曾是个问题。进入到深度学习时代，就直接可以用基于字的神经网络模型了。</p>
+<p>从NLP研究角度而言，中英文在词性标注、句法分析等任务上颇有差异。主要体现在英语有明显的屈折变化（单复数、时态等）而汉语缺少这些屈折变化，亦即有学者总结的“汉语重义合，英语重形合”。所以，英语里一个词被标为动词还是名词，没有太多争议；汉语里一个词应该被标为动词还是名词，例如“热爱学习”、“劳动光荣”中的“学习”、“劳动”如果按照英文语法规范应当标注为名词。著名语言学家沈家煊先生就曾提出“汉语动词和名词不分立”的理论。在句法分析层面汉语也有一些自己的特点，具体需要请教专业的语言学家解答了。</p>
+<p>中英文相关分析任务的错误率问题。之所以在一些任务上中文分析性能显著低于英文，除了中文缺少屈者变化、有更多自由度从而提升了分析难度的原因外，中文标注资源相对较少、标注质量相对较低也是关键原因之一。语言资源标注既需要语言学家和计算机学者的通力合作，需要花费大量精力和时间，在国内环境下太费力不讨好了，希望未来会有改观。</p>
+<p>从更广阔的语言研究角度而言，中英由于各自承载了两种截然不同的人类群体的文化信息，所以在更深层的文化内涵会有更明显的分野，例如两种语言的词汇联想网络、隐喻风格等，可能会有更大的不同。也许在NLP技术日渐成熟之后，我们可以透过语言更加定量地分析两种不同文化的差异。</p>
+<h2 id="9">9. 参考资料<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<p>本文综合各处资料整理，来源如下：</p>
+<p>1.维基百科.自然语言处理</p>
+<p>2.刘知远.自然语言处理简介.清华大学计算机系</p>
+<p>3.<a href="https://github.com/NLP-LOVE/ML-NLP/tree/master/NLP/16. NLP">https://github.com/NLP-LOVE/ML-NLP/tree/master/NLP/16.%20NLP</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../../../PM/项目集/觅影/" title="觅影" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                觅影
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../自然语言处理应用/" title="自然语言处理应用" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                自然语言处理应用
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            <a href='http://www.beian.miit.gov.cn'target='_blank'>京ICP备19046279号-1</a>
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
+      
+        
+        
+          
+          <script src="../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../js/extra.js"></script>
+      
+        <script src="../../../../js/baidu-tongji.js"></script>
+      
+        <script src="../../../../js/umlconvert.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+    
+  </body>
+</html>

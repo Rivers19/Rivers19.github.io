@@ -1,0 +1,2321 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Rivers Blog">
+      
+      
+        <link rel="canonical" href="https://riversblog.site/PM/PM笔记/中台/中台PM笔记5/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>中台竞品分析 - Rivers Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://riversblog.site/" title="Rivers Blog" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Rivers Blog
+            </span>
+            <span class="md-header-nav__topic">
+              
+                中台竞品分析
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Rivers19/Blog/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Rivers19/Blog
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../.." class="md-tabs__link">
+          首页
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../俞军产品方法论/产品经理做什么/" class="md-tabs__link">
+          产品汪
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../Tech/AI/NLP/自然语言处理简介/" class="md-tabs__link">
+          技术
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../MacTools/iTerm2简明使用教程/" class="md-tabs__link">
+          生产力工具
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../about/" class="md-tabs__link">
+          作者
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://riversblog.site/" title="Rivers Blog" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Rivers Blog
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Rivers19/Blog/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Rivers19/Blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      首页
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        首页
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Contents" class="md-nav__link">
+      Contents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      产品汪
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        产品汪
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-1" type="checkbox" id="nav-2-1-1">
+    
+    <label class="md-nav__link" for="nav-2-1-1">
+      产品方法论
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-1">
+        产品方法论
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../俞军产品方法论/产品经理做什么/" title="产品经理做什么" class="md-nav__link">
+      产品经理做什么
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../俞军产品方法论/关于企业用户产品/" title="关于企业、用户、产品" class="md-nav__link">
+      关于企业、用户、产品
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../俞军产品方法论/交易/" title="交易" class="md-nav__link">
+      交易
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../俞军产品方法论/决策/" title="决策" class="md-nav__link">
+      决策
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-2" type="checkbox" id="nav-2-1-2">
+    
+    <label class="md-nav__link" for="nav-2-1-2">
+      高级PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-2">
+        高级PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记1/" title="产品如何从0到1？" class="md-nav__link">
+      产品如何从0到1？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记2/" title="产品经理的方向和格局" class="md-nav__link">
+      产品经理的方向和格局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记3/" title="产品地图与商业产品" class="md-nav__link">
+      产品地图与商业产品
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记4/" title="MVP实战 制作Demo" class="md-nav__link">
+      MVP实战 制作Demo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记5/" title="制作Landing Page" class="md-nav__link">
+      制作Landing Page
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记6/" title="用户调研" class="md-nav__link">
+      用户调研
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记7/" title="商业计划书和路演" class="md-nav__link">
+      商业计划书和路演
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3" checked>
+    
+    <label class="md-nav__link" for="nav-2-1-3">
+      中台PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-3">
+        中台PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记1/" title="中台PM挑战&中台意义与价值" class="md-nav__link">
+      中台PM挑战&中台意义与价值
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记2/" title="什么是中台？" class="md-nav__link">
+      什么是中台？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记3/" title="中台设计与建设" class="md-nav__link">
+      中台设计与建设
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记4/" title="中台需求分析" class="md-nav__link">
+      中台需求分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        中台竞品分析
+      </label>
+    
+    <a href="./" title="中台竞品分析" class="md-nav__link md-nav__link--active">
+      中台竞品分析
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 中台竞品分析的痛点
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 中台竞品分析的难点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 中台竞品分析基本流程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 调研方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 调研价值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 设定分析框架
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 中台竞品调研问题的解决
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 从「人」和「事」的角度，选好竞品
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 四诊合参
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    3.2.1 望，有目的的观察、阅读
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    3.2.2 闻，听“声音”、闻“气味”
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" class="md-nav__link">
+    3.2.3 问，询问直接干系人或间接干系人
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324" class="md-nav__link">
+    3.2.4 切，上手体验友商产品
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3. 案例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_1" class="md-nav__link">
+    3.1 阿里账号（用户）体系分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    3.1.1 分析目标
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    3.1.2 第一轮：上手体验竞品——切
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    3.1.3 第二轮：找前员工咨询——问
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    出现矛盾
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314-or" class="md-nav__link">
+    3.1.4 第三轮：一套or两套？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#315" class="md-nav__link">
+    3.1.5 第三轮：自己动手深入调研（全流程）——切
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314" class="md-nav__link">
+    3.1.4 第四轮：再次求证——问
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#315_1" class="md-nav__link">
+    3.1.5 汇总后，形成报告
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#316" class="md-nav__link">
+    3.1.6 小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32_1" class="md-nav__link">
+    3.2 平安金管家产品学习
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321_1" class="md-nav__link">
+    3.2.1 分析源起
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322_1" class="md-nav__link">
+    3.2.2 分析目的
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323_1" class="md-nav__link">
+    3.2.3 第一轮：上手体验——切
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324_1" class="md-nav__link">
+    3.2.4 第二轮：询问能接触到“代理端”的——问
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#325" class="md-nav__link">
+    3.2.5 第三轮：约保险代理人——问+切
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#326" class="md-nav__link">
+    3.2.6 形成报告
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#327" class="md-nav__link">
+    3.2.7 小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记6/" title="中台产品设计" class="md-nav__link">
+      中台产品设计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记7/" title="中台项目管理" class="md-nav__link">
+      中台项目管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记8/" title="中台产品运营" class="md-nav__link">
+      中台产品运营
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-4" type="checkbox" id="nav-2-1-4">
+    
+    <label class="md-nav__link" for="nav-2-1-4">
+      工具型产品
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-4">
+        工具型产品
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../工具型产品/工具型产品的一些思考/" title="工具型产品的一些思考" class="md-nav__link">
+      工具型产品的一些思考
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-5" type="checkbox" id="nav-2-1-5">
+    
+    <label class="md-nav__link" for="nav-2-1-5">
+      杂文
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-5">
+        杂文
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../杂文/张小龙关于信息互联的七点思考/" title="关于信息互联的七点思考——张小龙" class="md-nav__link">
+      关于信息互联的七点思考——张小龙
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      项目合集
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        项目合集
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/阳光筹/" title="「阳光筹」项目简介" class="md-nav__link">
+      「阳光筹」项目简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/RupiahOne官网/" title="Rupiah One官网设计" class="md-nav__link">
+      Rupiah One官网设计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/RupiahOne项目总结/" title="Rupiah One 项目总结" class="md-nav__link">
+      Rupiah One 项目总结
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/SaaS产品需求概要/" title="借贷系统SaaS化" class="md-nav__link">
+      借贷系统SaaS化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/China.cn会员后台/" title="China.cn会员后台" class="md-nav__link">
+      China.cn会员后台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/China.cn运营管理平台/" title="China.cn运营管理平台" class="md-nav__link">
+      	China.cn运营管理平台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/觅影/" title="觅影" class="md-nav__link">
+      觅影
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      技术
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        技术
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      AI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        AI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-1" type="checkbox" id="nav-3-1-1">
+    
+    <label class="md-nav__link" for="nav-3-1-1">
+      自然语言处理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-1">
+        自然语言处理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/AI/NLP/自然语言处理简介/" title="自然语言处理简介" class="md-nav__link">
+      自然语言处理简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/AI/NLP/自然语言处理应用/" title="自然语言处理应用" class="md-nav__link">
+      自然语言处理应用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-2" type="checkbox" id="nav-3-1-2">
+    
+    <label class="md-nav__link" for="nav-3-1-2">
+      机器学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-2">
+        机器学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/AI/ML/统计学习及监督学习概论/" title="CH01 统计学习及监督学习概论" class="md-nav__link">
+      CH01 统计学习及监督学习概论
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-3" type="checkbox" id="nav-3-1-3">
+    
+    <label class="md-nav__link" for="nav-3-1-3">
+      语音对话
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-3">
+        语音对话
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/AI/Speech/语音交互基础/" title="语音交互基础" class="md-nav__link">
+      语音交互基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/AI/Speech/基于特定客服领域对话系统的研究与实现/" title="基于特定客服领域对话系统的研究与实现" class="md-nav__link">
+      基于特定客服领域对话系统的研究与实现
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      DataMining
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        DataMining
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-1" type="checkbox" id="nav-3-2-1">
+    
+    <label class="md-nav__link" for="nav-3-2-1">
+      Kaggle
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-1">
+        Kaggle
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/DataMining/Kaggle/数据基础/" title="数据基础" class="md-nav__link">
+      数据基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/DataMining/Kaggle/数据描述/" title="数据描述" class="md-nav__link">
+      数据描述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/DataMining/Kaggle/Kaggle学习笔记/" title="Kaggle 学习笔记" class="md-nav__link">
+      Kaggle 学习笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-2" type="checkbox" id="nav-3-2-2">
+    
+    <label class="md-nav__link" for="nav-3-2-2">
+      SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-2">
+        SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/DataMining/SQL/SQL学习笔记/" title="MySQL in 3 hours" class="md-nav__link">
+      MySQL in 3 hours
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Basic
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Basic
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-1" type="checkbox" id="nav-3-3-1">
+    
+    <label class="md-nav__link" for="nav-3-3-1">
+      Linux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-1">
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/Basic/Linux基础/" title="Linux基础" class="md-nav__link">
+      Linux基础
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-2" type="checkbox" id="nav-3-3-2">
+    
+    <label class="md-nav__link" for="nav-3-3-2">
+      正则表达式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-2">
+        正则表达式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/Basic/正则表达式/" title="正则表达式" class="md-nav__link">
+      正则表达式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      生产力工具
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        生产力工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/iTerm2简明使用教程/" title="iTerm2" class="md-nav__link">
+      iTerm2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/Typora简明使用教程/" title="Typora" class="md-nav__link">
+      Typora
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/Git常用命令清单/" title="常用Git命令" class="md-nav__link">
+      常用Git命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/GitHub搜索技巧/" title="GitHub搜索技巧" class="md-nav__link">
+      GitHub搜索技巧
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      作者
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        作者
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/" title="关于作者" class="md-nav__link">
+      关于作者
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 中台竞品分析的痛点
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 中台竞品分析的难点
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 中台竞品分析基本流程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 调研方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 调研价值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 设定分析框架
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 中台竞品调研问题的解决
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 从「人」和「事」的角度，选好竞品
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 四诊合参
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    3.2.1 望，有目的的观察、阅读
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    3.2.2 闻，听“声音”、闻“气味”
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" class="md-nav__link">
+    3.2.3 问，询问直接干系人或间接干系人
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324" class="md-nav__link">
+    3.2.4 切，上手体验友商产品
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3. 案例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_1" class="md-nav__link">
+    3.1 阿里账号（用户）体系分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    3.1.1 分析目标
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    3.1.2 第一轮：上手体验竞品——切
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    3.1.3 第二轮：找前员工咨询——问
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    出现矛盾
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314-or" class="md-nav__link">
+    3.1.4 第三轮：一套or两套？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#315" class="md-nav__link">
+    3.1.5 第三轮：自己动手深入调研（全流程）——切
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314" class="md-nav__link">
+    3.1.4 第四轮：再次求证——问
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#315_1" class="md-nav__link">
+    3.1.5 汇总后，形成报告
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#316" class="md-nav__link">
+    3.1.6 小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32_1" class="md-nav__link">
+    3.2 平安金管家产品学习
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321_1" class="md-nav__link">
+    3.2.1 分析源起
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322_1" class="md-nav__link">
+    3.2.2 分析目的
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323_1" class="md-nav__link">
+    3.2.3 第一轮：上手体验——切
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324_1" class="md-nav__link">
+    3.2.4 第二轮：询问能接触到“代理端”的——问
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#325" class="md-nav__link">
+    3.2.5 第三轮：约保险代理人——问+切
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#326" class="md-nav__link">
+    3.2.6 形成报告
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#327" class="md-nav__link">
+    3.2.7 小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Rivers19/Blog/edit/master/docs/PM/PM笔记/中台/中台PM笔记5.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="_1">中台竞品分析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 中台竞品分析的痛点<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 中台竞品分析的难点<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>看不见：不知道调研什么产品</li>
+<li>摸不着：无法直接接触产品</li>
+<li>玩不透：中台产品“门道”在深处</li>
+</ul>
+<h2 id="2">2. 中台竞品分析基本流程<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 调研方法<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20191002160351415" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-080352.png" /></p>
+<h3 id="22">2.2 调研价值<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>节约时间、少走弯路、战略攻防</p>
+</blockquote>
+<p><img alt="image-20191002160451280" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-080452.png" /></p>
+<h3 id="23">2.3 设定分析框架<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20191002160522601" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-080522.png" /></p>
+<h2 id="3">3. 中台竞品调研问题的解决<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 从「人」和「事」的角度，选好竞品<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<ul>
+<li>从「人」下手<ul>
+<li>自己就知道</li>
+<li>问别人（eg.自己的上司）</li>
+</ul>
+</li>
+<li>从「事」下手<ul>
+<li>标杆</li>
+<li>同行</li>
+<li>异业</li>
+</ul>
+</li>
+</ul>
+<h3 id="32">3.2 四诊合参<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20191002160910913" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-080911.png" /></p>
+<h4 id="321">3.2.1 望，有目的的观察、阅读<a class="headerlink" href="#321" title="Permanent link">&para;</a></h4>
+<ul>
+<li>看新闻报道、持续关注友商动态</li>
+<li>看友商员工/大牛分享的文章，了解相关产品或动能</li>
+<li>关注友商每Q财报，了解友商业务布局</li>
+<li>看友商招聘动态，了解产品发展/获取产品介绍</li>
+<li>百度搜一搜</li>
+</ul>
+<h4 id="322">3.2.2 闻，听“声音”、闻“气味”<a class="headerlink" href="#322" title="Permanent link">&para;</a></h4>
+<ul>
+<li>参加行业峰会，了解行业知识或特定公司的产品知识</li>
+<li>听友商大牛分享，了解具体的产品信息（或意外收获系统的产品方案）</li>
+<li>参加友商组织的各种活动，有机会与友商员工交流</li>
+<li>投友商职位去面试，“做无间道”，针对性地了解岗位/业务</li>
+</ul>
+<h4 id="323">3.2.3 问，询问直接干系人或间接干系人<a class="headerlink" href="#323" title="Permanent link">&para;</a></h4>
+<ul>
+<li>问友商的员工</li>
+<li>问友商的上下游（上游供应商、下游用户）</li>
+<li>问咨询公司</li>
+<li>找“茬”问对方客服</li>
+<li>玩“六度人脉”关系</li>
+</ul>
+<h4 id="324">3.2.4 切，上手体验友商产品<a class="headerlink" href="#324" title="Permanent link">&para;</a></h4>
+<ul>
+<li>全流程全方位体验友商产品<ul>
+<li>正向：注册、登录、下载、下单......</li>
+<li>逆向：退货、退款、注销账号</li>
+<li>异常：非法操作、就业务问题咨询客服......</li>
+</ul>
+</li>
+</ul>
+<h2 id="3_1">3. 案例<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h2>
+<h3 id="31_1">3.1 阿里账号（用户）体系分析<a class="headerlink" href="#31_1" title="Permanent link">&para;</a></h3>
+<h4 id="311">3.1.1 分析目标<a class="headerlink" href="#311" title="Permanent link">&para;</a></h4>
+<ul>
+<li>淘宝账号与支付宝账号，是统一的还是各自独立？</li>
+</ul>
+<h4 id="312">3.1.2 第一轮：上手体验竞品——切<a class="headerlink" href="#312" title="Permanent link">&para;</a></h4>
+<ul>
+<li>调研成本低廉</li>
+<li>形成初步认识，进一步交流时有所依据</li>
+<li>先求己，再求人</li>
+</ul>
+<p><img alt="image-20191002162658567" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-082658.png" /></p>
+<p><img alt="image-20191002162722691" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-082722.png" /></p>
+<h4 id="313">3.1.3 第二轮：找前员工咨询——问<a class="headerlink" href="#313" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>2015年淘宝与支付宝做了一次账号大融合，底层已经实现成为一套，实现大统一</p>
+<p>历史数据场景很多，比如账号冲突、手机号冲突、一方有账号一方没有等复杂情况</p>
+<p>本人不是直接项目参与者，也没有详尽材料</p>
+</blockquote>
+<h5 id="_2">出现矛盾<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<p><img alt="image-20191002163016804" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-083017.png" /></p>
+<h4 id="314-or">3.1.4 第三轮：一套or两套？<a class="headerlink" href="#314-or" title="Permanent link">&para;</a></h4>
+<p>主题明确：到底一套还是两套？</p>
+<ul>
+<li>方法一：自己动手深入调研（全流程）——切</li>
+<li>方法二：网上搜寻相关资料——望<ul>
+<li>望，但没有特别有价值的资料</li>
+</ul>
+</li>
+</ul>
+<h4 id="315">3.1.5 第三轮：自己动手深入调研（全流程）——切<a class="headerlink" href="#315" title="Permanent link">&para;</a></h4>
+<ul>
+<li>注册成功：</li>
+</ul>
+<p><img alt="image-20191002163325243" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-083325.png" /></p>
+<p><img alt="image-20191002163359888" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-083400.png" /></p>
+<ul>
+<li>重置密码（逆向/异常操作）</li>
+</ul>
+<p><img alt="image-20191002163506652" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-083507.png" /></p>
+<p>→</p>
+<p>​   基础信息修改操作一致：采用了同样的基础组件？一个团队做的，被另一个团队拿去用了？</p>
+<ul>
+<li>统一登录：<ul>
+<li>前台需选择账号，说明可能重名</li>
+<li>没打通？？<ul>
+<li>但新注册账号又可以直接互相登录</li>
+</ul>
+</li>
+<li>打通了？<ul>
+<li>新账号统一，老账号不统一</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20191002163924693" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-083925.png" /></p>
+<blockquote>
+<p>所以，到底是一套还是两套？</p>
+</blockquote>
+<p>→ 参量账号支持绑定或升级，新注册账号底层统一</p>
+<h4 id="314">3.1.4 第四轮：再次求证——问<a class="headerlink" href="#314" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20191002164138721" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-084139.png" /></p>
+<h4 id="315_1">3.1.5 汇总后，形成报告<a class="headerlink" href="#315_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>业务流程：附上证明材料若干</li>
+<li>对我们的启示：给出我们的设计方案</li>
+</ul>
+<h4 id="316">3.1.6 小结<a class="headerlink" href="#316" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20191002164352372" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-084352.png" /></p>
+<h3 id="32_1">3.2 平安金管家产品学习<a class="headerlink" href="#32_1" title="Permanent link">&para;</a></h3>
+<h4 id="321_1">3.2.1 分析源起<a class="headerlink" href="#321_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>平安金管家在业内比较出名，在公司高层中有较好 </li>
+<li>传言有很强的服务于保险代理人的功能</li>
+</ul>
+<h4 id="322_1">3.2.2 分析目的<a class="headerlink" href="#322_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>主要分析服务代理人都有什么功能可供分销中台项目学习和借鉴</li>
+</ul>
+<h4 id="323_1">3.2.3 第一轮：上手体验——切<a class="headerlink" href="#323_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>纯用户视角，看不到代理人功能</li>
+</ul>
+<h4 id="324_1">3.2.4 第二轮：询问能接触到“代理端”的——问<a class="headerlink" href="#324_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>找平安内部员工<ul>
+<li>无熟悉的员工，成本较高</li>
+</ul>
+</li>
+<li>找平安的保险代理人（下游）<ul>
+<li>电话询问</li>
+<li>让对方截图</li>
+</ul>
+</li>
+</ul>
+<p>→→</p>
+<ul>
+<li>确实如领导们所说，有基于代理人的营销赋能工具，但信息太有限；代理人又非IT人员，讲不清除逻辑</li>
+</ul>
+<h4 id="325">3.2.5 第三轮：约保险代理人——问+切<a class="headerlink" href="#325" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>约代理人喝下午茶，请客吃饭......</p>
+</blockquote>
+<ul>
+<li>代理人讲解/示范使用场景/流程<ul>
+<li>对代理端能力有初步和完整的印象</li>
+</ul>
+</li>
+<li>用代理人账号操作系统<ul>
+<li>亲自上手体验，感受/探索更深</li>
+</ul>
+</li>
+<li>针对性地向代理人提问<ul>
+<li>丰富自己的认知</li>
+</ul>
+</li>
+</ul>
+<p>→→</p>
+<p>对代理端的功能有了更全面、深入的了解</p>
+<h4 id="326">3.2.6 形成报告<a class="headerlink" href="#326" title="Permanent link">&para;</a></h4>
+<ul>
+<li>分析亮点功能<ul>
+<li>截图+分析结论</li>
+</ul>
+</li>
+<li>找到可学习/借鉴的点</li>
+<li>落实现有方案</li>
+</ul>
+<h4 id="327">3.2.7 小结<a class="headerlink" href="#327" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20191002165622507" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-085622.png" /></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../中台PM笔记4/" title="中台需求分析" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                中台需求分析
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../中台PM笔记6/" title="中台产品设计" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                中台产品设计
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            <a href='http://www.beian.miit.gov.cn'target='_blank'>京ICP备19046279号-1</a>
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
+      
+        
+        
+          
+          <script src="../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../js/extra.js"></script>
+      
+        <script src="../../../../js/baidu-tongji.js"></script>
+      
+        <script src="../../../../js/umlconvert.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+    
+  </body>
+</html>

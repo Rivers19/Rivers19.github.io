@@ -1,0 +1,1841 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Rivers Blog">
+      
+      
+        <link rel="canonical" href="https://riversblog.site/Tech/AI/CV/AI视频审核/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>AI在视频审核中的应用进展与展望 - Rivers Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#ai" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://riversblog.site/" title="Rivers Blog" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Rivers Blog
+            </span>
+            <span class="md-header-nav__topic">
+              
+                AI在视频审核中的应用进展与展望
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Rivers19/Blog/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Rivers19/Blog
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../.." class="md-tabs__link">
+          首页
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../PM/PM笔记/俞军产品方法论/产品经理做什么/" class="md-tabs__link">
+          产品汪
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../NLP/自然语言处理简介/" class="md-tabs__link">
+          技术
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../MacTools/iTerm2简明使用教程/" class="md-tabs__link">
+          生产力工具
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../about/" class="md-tabs__link">
+          作者
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://riversblog.site/" title="Rivers Blog" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Rivers Blog
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Rivers19/Blog/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Rivers19/Blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      首页
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        首页
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Contents" class="md-nav__link">
+      Contents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      产品汪
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        产品汪
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-1" type="checkbox" id="nav-2-1-1">
+    
+    <label class="md-nav__link" for="nav-2-1-1">
+      产品方法论
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-1">
+        产品方法论
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/俞军产品方法论/产品经理做什么/" title="产品经理做什么" class="md-nav__link">
+      产品经理做什么
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/俞军产品方法论/关于企业用户产品/" title="关于企业、用户、产品" class="md-nav__link">
+      关于企业、用户、产品
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/俞军产品方法论/交易/" title="交易" class="md-nav__link">
+      交易
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/俞军产品方法论/决策/" title="决策" class="md-nav__link">
+      决策
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-2" type="checkbox" id="nav-2-1-2">
+    
+    <label class="md-nav__link" for="nav-2-1-2">
+      高级PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-2">
+        高级PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记1/" title="产品如何从0到1？" class="md-nav__link">
+      产品如何从0到1？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记2/" title="产品经理的方向和格局" class="md-nav__link">
+      产品经理的方向和格局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记3/" title="产品地图与商业产品" class="md-nav__link">
+      产品地图与商业产品
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记4/" title="MVP实战 制作Demo" class="md-nav__link">
+      MVP实战 制作Demo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记5/" title="制作Landing Page" class="md-nav__link">
+      制作Landing Page
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记6/" title="用户调研" class="md-nav__link">
+      用户调研
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记7/" title="商业计划书和路演" class="md-nav__link">
+      商业计划书和路演
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3">
+    
+    <label class="md-nav__link" for="nav-2-1-3">
+      中台PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-3">
+        中台PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记1/" title="中台PM挑战&中台意义与价值" class="md-nav__link">
+      中台PM挑战&中台意义与价值
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记2/" title="什么是中台？" class="md-nav__link">
+      什么是中台？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记3/" title="中台设计与建设" class="md-nav__link">
+      中台设计与建设
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记4/" title="中台需求分析" class="md-nav__link">
+      中台需求分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记5/" title="中台竞品分析" class="md-nav__link">
+      中台竞品分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记6/" title="中台产品设计" class="md-nav__link">
+      中台产品设计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记7/" title="中台项目管理" class="md-nav__link">
+      中台项目管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记8/" title="中台产品运营" class="md-nav__link">
+      中台产品运营
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-4" type="checkbox" id="nav-2-1-4">
+    
+    <label class="md-nav__link" for="nav-2-1-4">
+      工具型产品
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-4">
+        工具型产品
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/工具型产品/工具型产品的一些思考/" title="工具型产品的一些思考" class="md-nav__link">
+      工具型产品的一些思考
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-5" type="checkbox" id="nav-2-1-5">
+    
+    <label class="md-nav__link" for="nav-2-1-5">
+      杂文
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-5">
+        杂文
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/杂文/张小龙关于信息互联的七点思考/" title="关于信息互联的七点思考——张小龙" class="md-nav__link">
+      关于信息互联的七点思考——张小龙
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      项目合集
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        项目合集
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/阳光筹/" title="「阳光筹」项目简介" class="md-nav__link">
+      「阳光筹」项目简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/RupiahOne官网/" title="Rupiah One官网设计" class="md-nav__link">
+      Rupiah One官网设计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/RupiahOne项目总结/" title="Rupiah One 项目总结" class="md-nav__link">
+      Rupiah One 项目总结
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/SaaS产品需求概要/" title="借贷系统SaaS化" class="md-nav__link">
+      借贷系统SaaS化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/China.cn会员后台/" title="China.cn会员后台" class="md-nav__link">
+      China.cn会员后台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/China.cn运营管理平台/" title="China.cn运营管理平台" class="md-nav__link">
+      	China.cn运营管理平台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/觅影/" title="觅影" class="md-nav__link">
+      觅影
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      技术
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        技术
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      AI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        AI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-1" type="checkbox" id="nav-3-1-1">
+    
+    <label class="md-nav__link" for="nav-3-1-1">
+      自然语言处理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-1">
+        自然语言处理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../NLP/自然语言处理简介/" title="自然语言处理简介" class="md-nav__link">
+      自然语言处理简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../NLP/自然语言处理应用/" title="自然语言处理应用" class="md-nav__link">
+      自然语言处理应用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-2" type="checkbox" id="nav-3-1-2">
+    
+    <label class="md-nav__link" for="nav-3-1-2">
+      机器学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-2">
+        机器学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/统计学习及监督学习概论/" title="CH01 统计学习及监督学习概论" class="md-nav__link">
+      CH01 统计学习及监督学习概论
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-3" type="checkbox" id="nav-3-1-3">
+    
+    <label class="md-nav__link" for="nav-3-1-3">
+      语音对话
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-3">
+        语音对话
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Speech/语音交互基础/" title="语音交互基础" class="md-nav__link">
+      语音交互基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Speech/基于特定客服领域对话系统的研究与实现/" title="基于特定客服领域对话系统的研究与实现" class="md-nav__link">
+      基于特定客服领域对话系统的研究与实现
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      DataMining
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        DataMining
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-1" type="checkbox" id="nav-3-2-1">
+    
+    <label class="md-nav__link" for="nav-3-2-1">
+      Kaggle
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-1">
+        Kaggle
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DataMining/Kaggle/数据基础/" title="数据基础" class="md-nav__link">
+      数据基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DataMining/Kaggle/数据描述/" title="数据描述" class="md-nav__link">
+      数据描述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DataMining/Kaggle/Kaggle学习笔记/" title="Kaggle 学习笔记" class="md-nav__link">
+      Kaggle 学习笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-2" type="checkbox" id="nav-3-2-2">
+    
+    <label class="md-nav__link" for="nav-3-2-2">
+      SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-2">
+        SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DataMining/SQL/SQL学习笔记/" title="MySQL in 3 hours" class="md-nav__link">
+      MySQL in 3 hours
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Basic
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Basic
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-1" type="checkbox" id="nav-3-3-1">
+    
+    <label class="md-nav__link" for="nav-3-3-1">
+      Linux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-1">
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Basic/Linux基础/" title="Linux基础" class="md-nav__link">
+      Linux基础
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-2" type="checkbox" id="nav-3-3-2">
+    
+    <label class="md-nav__link" for="nav-3-3-2">
+      正则表达式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-2">
+        正则表达式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Basic/正则表达式/" title="正则表达式" class="md-nav__link">
+      正则表达式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      生产力工具
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        生产力工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/iTerm2简明使用教程/" title="iTerm2" class="md-nav__link">
+      iTerm2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/Typora简明使用教程/" title="Typora" class="md-nav__link">
+      Typora
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/Git常用命令清单/" title="常用Git命令" class="md-nav__link">
+      常用Git命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/GitHub搜索技巧/" title="GitHub搜索技巧" class="md-nav__link">
+      GitHub搜索技巧
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      作者
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        作者
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/" title="关于作者" class="md-nav__link">
+      关于作者
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ai" class="md-nav__link">
+    2. “AI+视频审核”解决方案及关键技术
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 视频内容审核关注点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-ai" class="md-nav__link">
+    2.2 “AI+视频”解决方案
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 文本处理相关技术
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 音频处理相关技术
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 深度学习图像处理技术
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Rivers19/Blog/edit/master/docs/Tech/AI/CV/AI视频审核.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="ai">AI在视频审核中的应用进展与展望<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>行业背景    AI原理？业务流程？  如何评价效果？成本多少？如何实施？如何优化？</p>
+</blockquote>
+<h2 id="1">1. 前言<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>近年来，随着互联网的深入发展，优酷、爱奇艺、抖音、快手等一众视频平台的兴起，让网络视频的生产和传播变得尤为便捷，各类网络视频资源变得极为丰富。据中国网络视听节目服务协会发布的《2018年中国网络视听发展研究报告》显示，“截至2018年6月，中国网络视频用户规模为6.09亿，占网民总体的 76.0%。较2017年底增加3014万，半年增长率为5.2%，比整体网民增速高 1.4%。”，成千上万的用户通过网络视频或是记录日常、表达情感或是娱乐消遣。</p>
+<p>在爆炸式增长的视频内容中，往往也充斥着各类不可控的风险因素，比如色情低俗内容、涉政暴恐内容、各种垃圾广告、版权所属等等。这些不良内容的一方面严重污染健康绿色的网络环境、影响正常用户使用体验，另一方面也让网络视频平台面临严峻的内容安全风险、触犯监管条例的法律风险。</p>
+<p>因此，各大网络视频平台不得不投入巨大的人力物力，着重加强自身的视频内容审核，也因此付出了很大的审核运营成本。近些年来，随着深度学习为代表的人工智能技术的快速发展，人们开始关注如何引入AI技术助力视频内容审核，寄希望于用AI提升审核效率，降低人力物力成本。</p>
+<p>本文将从“AI+视频审核”解决方案及关键技术、审核效果评价、实施部署、优化改进等方面介绍“AI+视频审核”的一般业务样貌。</p>
+<h2 id="2-ai">2. “AI+视频审核”解决方案及关键技术<a class="headerlink" href="#2-ai" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 视频内容审核关注点<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>对于视频内容的审核，主要关注点在于以下几类：</p>
+<p>1). 视频内容是否涉及色情低俗</p>
+<p>除了对视频图像进行色情识别，还需对视频中的语音、画面中的文字内容进行色情检测和过滤。包括不限于：</p>
+<ul>
+<li>性行为、露点及嫖娼,SM,性用品及性玩具,儿童色情,艺术品色情</li>
+<li>男性衣着暴露,女性衣着暴露</li>
+<li>亲密行为、低俗行为</li>
+</ul>
+<p>2). 视频内容是否涉及暴恐</p>
+<p>通过对视频中的图像画面、语音、文字等多维内容，进行暴恐内容检测和识别。包括不限于：</p>
+<ul>
+<li>恐怖组织、暴恐人物</li>
+<li>血腥,尸体,绑架及杀人,爆炸火灾,暴乱场面,军事武器,警察部队,车祸</li>
+</ul>
+<p>3). 视频内容是否涉及政治</p>
+<p>建立政治人物库和敏感内容库，对画面中人脸、语音、文字中出现的敏感信息，实现自动检测和识别。包括不限于：</p>
+<ul>
+<li>涉政正面人物,涉政负面人物</li>
+<li>涉政正面事件,摄政负面事件</li>
+<li>涉政正面组织,涉政负面组织</li>
+</ul>
+<p>4). 视频内容是否涉及广告营销</p>
+<p>对视频中的二维码、条形码、水印进行检测和识别，同时对视频中的文字进行识别和广告过滤。包括不限于：</p>
+<ul>
+<li>品牌标识</li>
+<li>二维码,联系方式,网站,软文推广</li>
+</ul>
+<p>5). 违禁品检测</p>
+<p>对视频画面中的物品、文字进行检测，识别是否出现涉嫌违禁物品。包括不限于：</p>
+<ul>
+<li>
+<p>枪支、六合彩、管制刀具等</p>
+</li>
+<li>
+<p>赌博、假冒伪劣及造假盗窃、非法交易、非法获取私人信息等</p>
+</li>
+</ul>
+<p>6). 视频内容是否重复/相似，涉及版权问题</p>
+<p>检测并判断视频内容是否重复或相似的，是否涉及版权归属问题。</p>
+<h3 id="22-ai">2.2 “AI+视频”解决方案<a class="headerlink" href="#22-ai" title="Permanent link">&para;</a></h3>
+<p>当前主流的解决方案可总结为如图1所示，</p>
+<p><img alt="image-20191122201906555" src="/Users/rivers/Library/Application Support/typora-user-images/image-20191122201906555.png" /></p>
+<p>视频内容审核的一般的处理流程：1.将视频URL、视频标题、视频封面图片、用户账号信息及用户IP信息传输至审核检测引擎；2.由审核检测引擎对数据进行建模分析后将视频内容审核结果输出 3.系统设定阈值或人工审核，判定视频内容是否合规。</p>
+<p>解决方案涉及的关键技术，主要也就是对文本、声音、图像、视频等4要素的处理技术。</p>
+<h3 id="22">2.2 文本处理相关技术<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>在内容审核领域，涉及到的文本处理相关技术主要是文本分类（自然语言处理的一个基本任务），主要目标在于推断出给定文本的标签。二分类</p>
+<p><img alt="网易易盾NLP" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-11-25-105443.jpg" /></p>
+<h3 id="23">2.3 音频处理相关技术<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>音频处理主要涉及两方面，一是声音检测，而是语言检测。前者主要检测包括的类型有呻吟、娇喘、ASMR和枪击爆炸等。语言检测则可以对小语种提供识别服务，在小语种识别上与人工识别对比，机器识别的准确度要高于人工识别，处理流程是将音频分段提取频谱特征，把传统的频谱特征扔到CNN网络中做分类工作，通过这种简单的方式其实就可以取得很好的效果。</p>
+<h3 id="24">2.4 深度学习图像处理技术<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<p>基本技术手段是深度学习中最常见的图像分类网络和目标检测网络，图像分类网络是对图像整体提取特征后进行分类，目标检测在提取特征后对图像位置和类别打上标签。在实际解决问题的过程中，对于不同的违禁内容往往会使用不同模型和服务进行处理。</p>
+<ul>
+<li>图像分类算法主要包括：RsNet、DenseNet、SENet等</li>
+<li>目标检测算法主要有：YOLO-v3、SSD、RefineDet等</li>
+</ul>
+<p><img alt="image-20191125171701012" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-11-25-091949.png" /></p>
+<p>如何实现AI净网？今日头条发布反低俗工具“灵犬3.0”，背后技术原理揭秘</p>
+<p><img alt="头条内容安全机制" src="/Users/rivers/Desktop/头条内容安全机制.png" /></p>
+<h1 id="ai_1">AI+内容安全审核<a class="headerlink" href="#ai_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>1月9日，中国网络视听节目服务协会在官网发布《网络短视频内容审核标准细则》100条，文件规定，网络播放的短视频节目，及其标题、名称、评论、弹幕、表情包等，其语言、表演、字幕、背景中不得出现21个方面的具体内容（常见问题）。</p>
+<p>这21个方面被要求不得出现的具体内容覆盖攻击我国政治制度、法律制度的内容，分裂国家的内容，损害国家形象的内容，损害革命领袖、英雄烈士形象的内容，泄露国家秘密的内容，破坏社会稳定的内容，歪曲贬低民族优秀文化传统的内容，宣扬封建迷信，违背科学精神的内容，宣扬不良、消极颓废的人生观、世界观和价值观的内容，渲染暴力血腥、展示丑恶行为和惊悚情景的内容等。</p>
+<p>随着互联网、智能设备及各种新生业务的飞速发展，互联网上的数据呈现爆炸式增长，图片、视频、发文、聊天等互动内容已经成为人们表达感情、记录事件和日常工作不可或缺的部分。每天，通过互联网上传的视频、图片数量超过10亿，通过各种社交网络、媒体平台的发文数量超过5亿，而且这种趋势还是继续快速增长。</p>
+<p>这些日益增长的内容中也充斥着各种不可控的风险因素，例如色情视频和图片、涉政暴恐内容、各种垃圾广告等等。随着政府监管的日渐严格，这些都是各网站及平台亟待认真对待和管理的工作。而另一方面，人们对这些非结构化内容的认识和解读和也处于初级阶段，需要更加智能的技术和系统来帮助大家深度发掘这其中蕴藏的巨大商业价值。</p>
+</blockquote>
+<h3 id="_1">内容安全审核的对象<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>信息爆炸的时代，互联网上充斥着</p>
+<ul>
+<li>文字</li>
+<li>图片</li>
+<li>语音</li>
+<li>视频</li>
+</ul>
+<p>审核关注点：</p>
+<ul>
+<li>涉黄/暴恐/政治敏感</li>
+<li>视频质量评估</li>
+<li>版权指纹分析</li>
+<li>重复/相似鉴别</li>
+</ul>
+<p>包括视频质量评估、黄/暴/恐鉴别、重复/相似鉴别及版权指纹分析等，避免低质量、重复/疑似不安全内容进入传播流程。</p>
+<p>技术点</p>
+<blockquote>
+<p>UGC网站的内容审核管理是怎么做的？ - 华为云的回答 - 知乎
+<a href="https://www.zhihu.com/question/20661252/answer/526535811">https://www.zhihu.com/question/20661252/answer/526535811</a></p>
+<p>如何用 AI 实现视频结构化管理？ - 七牛云的文章 - 知乎
+<a href="https://zhuanlan.zhihu.com/p/36364016">https://zhuanlan.zhihu.com/p/36364016</a></p>
+</blockquote>
+<ul>
+<li></li>
+<li>结构化分析<ul>
+<li>视频多级标签自动生成</li>
+<li>视频智能审核</li>
+<li>视频智能批处理</li>
+<li>相似短视频智能推荐</li>
+</ul>
+</li>
+<li><strong>结构化分析</strong>，针对各种类型的长、短视频，提供智能结构化分析，将视频以镜头、内容片段等结构化形式进行描述，便于后续的内容分析、存储和分发。</li>
+<li><strong>内容分析</strong>，从场景识别、主体识别、行为/事件检测、语音/文本分析及内容描述等方面对其进行智能化分析，支持多维度内容查询和检索。</li>
+<li></li>
+</ul>
+<h4 id="svsa">腾讯云短视频结构化分析 SVSA<a class="headerlink" href="#svsa" title="Permanent link">&para;</a></h4>
+<h4 id="_2">网易易盾<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>视频转码压缩 </li>
+<li>视频流分析 <ul>
+<li>视频流审核，基于行为识别系统</li>
+</ul>
+</li>
+<li>截图分析 </li>
+<li>视频特征识别</li>
+</ul>
+<p>网易易盾音视频行业解决方案</p>
+<h4 id="_3">阿里云视频风险内容识别<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>视频违规内容检测</p>
+<ul>
+<li>视频智能鉴黄</li>
+<li>视频暴恐涉政识别</li>
+<li>视频图文违规识别</li>
+<li>视频不良场景识别</li>
+<li>视频logo识别</li>
+</ul>
+<blockquote>
+<p>视频帧检测接口响应时间依赖图片的下载时间。请保证被检测视频帧所在的存储服务稳定可靠，建议您使用阿里云OSS存储或者CDN缓存等。</p>
+</blockquote>
+</li>
+<li>
+<p>视频指纹：根据给定的视频，从视频库中检索同源视频。</p>
+<ul>
+<li>创建视频分组，然后在视频分组中添加或删除视频。提交视频指纹检索任务时，需要指定待检测视频和视频分组，内容安全从待检测视频分组中检索与待检测视频相似的视频。</li>
+</ul>
+</li>
+<li>
+<p>视频标签：识别视频中的主体，场景，行为等内容，并输出标签以及出现的时间点。</p>
+</li>
+</ul>
+<p>从截帧画面、声音、文字多维度分析，识别</p>
+<blockquote>
+<p>支持同步调用、异步调用</p>
+</blockquote>
+<p>审核标准：</p>
+<ul>
+<li>准确率：机审判定违规且人审确认违规的检测数量 / 机审判定违规的检测数量。</li>
+<li>召回率：机审判定违规且人审确认违规的检测数量 / 人审确认违规的检测数量。</li>
+<li>审核比：机审判定疑似的检测数量 / 机审结果的总数。</li>
+</ul>
+<p>阿里云内容安全本地化部署框架</p>
+<p><img alt="" src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17513/15680207409307_zh-CN.png" /></p>
+<h4 id="_4">百度大脑视频内容审核<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>色情识别</p>
+<p>除了对视频图像进行色情识别，还对视频中的语音、画面中的文字内容进行色情检测和过滤，其中语音色情识别属于业界首发</p>
+<ul>
+<li>性行为、露点及嫖娼,SM,性用品及性玩具,儿童色情,艺术品色情</li>
+<li>男性衣着暴露,女性衣着暴露</li>
+<li>亲密行为、低俗行为</li>
+</ul>
+</li>
+<li>
+<p>暴恐识别</p>
+<p>对视频中的图像画面、语音、文字等多维内容，进行暴恐内容检测和识别，并支持自定义设置</p>
+<ul>
+<li>恐怖组织、暴恐人物</li>
+<li>血腥,尸体,绑架及杀人,爆炸火灾,暴乱场面,军事武器,警察部队,车祸</li>
+</ul>
+</li>
+<li>
+<p>政治敏感识别</p>
+<p>提供政治人物库和敏感内容库，对画面中人脸、语音、文字中出现的敏感信息，实现自动检测和识别，并支持自建敏感人脸库</p>
+<ul>
+<li>涉政正面人物,涉政负面人物</li>
+<li>涉政正面事件,摄政负面事件</li>
+<li>涉政正面组织,涉政负面组织</li>
+</ul>
+</li>
+<li>
+<p>违禁品检测</p>
+<p>对视频画面中的物品、文字进行检测，识别是否出现涉嫌违禁物品，包括枪支、六合彩、管制刀具等</p>
+<ul>
+<li>赌博、假冒伪劣及造假盗窃、非法交易、非法获取私人信息等</li>
+</ul>
+</li>
+<li>
+<p>广告检测</p>
+<p>支持对视频中的二维码、条形码、水印进行检测和识别，同时支持对视频中的文字进行识别和广告过滤</p>
+<ul>
+<li>品牌标识</li>
+<li>二维码,联系方式,网站,软文推广</li>
+</ul>
+</li>
+<li>
+<p>自定义视频黑库</p>
+<p>基于视频指纹和比对技术，支持新上传视频与自建视频黑库的指纹对比，实现防止违规视频传播、保护版权视频等业务功能</p>
+</li>
+</ul>
+<p>针对视频内容进行多维智能审核，其中包括色情、暴恐、政治敏感、广告、自定义黑库等</p>
+<p>对视频中的语音、文字、图像进行多维检测，及时发现涉黄、涉暴、政治敏感、广告、违禁品等风险内容
+同时支持自定义视频黑库，基于视频指纹技术实现视频对比。识别准确率高，实时跟进最新政策，大幅减少人工审核</p>
+<p><img alt="" src="http://aip.bdstatic.com/portal/dist/1571886616760/ai_images/technology/video-vcr/product.png" /></p>
+<p>审核管理：</p>
+<ul>
+<li>管理库配置：文本库、logo库、人脸库</li>
+<li>设置默认置信度阈值（可选）：VCR为不同的审核项给出了相应的推荐阈值，默认使用系统推荐阈值</li>
+<li>设置审核物料：根据需要选择是否开启图像、语音、文本审核，其中图像审核支持调节视频 <strong>抽帧间隔</strong></li>
+</ul>
+<p>审核结果：</p>
+<ul>
+<li>机审确认结果：机器判断视频违规，不需人审进行二次确认，可直接封禁/下架，置信度高<ul>
+<li>视频机审结果违规时，视频审核详情页会显示机审确认结果和机审疑似结果的具体信息，包括审核结果所属的审核场景、审核类型和审核项，还包括置信度、物料类型、审核证据和时间位置等信息。</li>
+</ul>
+</li>
+<li>机审疑似结果：机器判断该视频有可能违规，需要人审进行二次确认，置信度低。</li>
+</ul>
+<p>用户提供视频路径，创建一次视频审核：</p>
+<ul>
+<li>视频路径支持BOS、VOD、URL路径；</li>
+<li>正在审核中的视频无法再次进行审核；</li>
+<li>已经审核过的视频（FINISHED/ERROR）可以重新进行审核；</li>
+<li>视频重新审核会覆盖上次审核结果。</li>
+</ul>
+<p>输入限制</p>
+<ul>
+<li>文件格式：3gpp,asf/wmv,avi,flv/f4v,mkv,mov/mp4/m4a,mp3,mp2,mpeg/mpg,ts/ogg,mts,wmv/wma,rm/rmvb,webm等</li>
+<li>视频编码标准：H.264,H.263/H.263+,MPEG-&frac12;/4,VP8/9,Quicktime,RealVideo,WMV,MJPEG等</li>
+<li>音频编码标准：MP1，MP2,MP3,AAC,AC-3,WMA,PCM,ADPCM,AMR,RealAudio,Vorbis,DSD等</li>
+</ul>
+<p>计费方式：按实际用量后付费</p>
+<p>计费价格：计费价格根据审核时长／张数／次数阶梯收费，查看<a href="https://cloud.baidu.com/doc/VCR/Pricing.html#Pricing">详细计费文档</a></p>
+<table>
+<thead>
+<tr>
+<th align="left">计费项</th>
+<th align="left">单价</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">视频内容审核</td>
+<td align="left">6元/小时</td>
+<td align="left">按视频时长计费</td>
+</tr>
+<tr>
+<td align="left">语音内容审核</td>
+<td align="left">2元/小时</td>
+<td align="left">按音频时长计费</td>
+</tr>
+<tr>
+<td align="left">图片内容审核</td>
+<td align="left">1.5元/千张</td>
+<td align="left">按图片张数计费</td>
+</tr>
+<tr>
+<td align="left">文字内容审核</td>
+<td align="left">1.2元/千次</td>
+<td align="left">按接口调用次数计费</td>
+</tr>
+</tbody>
+</table>
+<p>视频指纹</p>
+<p><img alt="img" src="https://mmbiz.qpic.cn/mmbiz_png/CZeKj44ymYY49pkMHUgCVu85c8BnXgUeFQ40nxsTnnYRE1eNhMIx1LYLDxJlxeSop5G8kVPr2Xra07I786icRtQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" /></p>
+<p>上图展示的是视频指纹的架构。首先系统会对输入的视频内容进行镜头检测从而产生一组以镜头为单位的帧序列，而后系统采用自研选帧算法从这些帧序列中选取一个代表帧进行特征提取；在提取时我们需要考虑画面裁剪、CDN、清晰度、字幕等因素并去除这些因素的干扰；最后植入视频指纹特征，同时将此指纹特征存储到视频搜索引擎中方便日后检索目标视频文件。</p>
+<p><strong>什么是审查队列？</strong></p>
+<p>人工审查帮助算法创建训练集，但其主要功能是不断地为算法吐出的内容审查队列进行人员配置。队列通常分为不同的容器，根据审查的优先级（例如，这是紧急的，7*24小时实时审查）以及审查人员的特点—受过不同类型的内容审查培训，会说不同的语言等等。这是一个内置大量逻辑的类似工厂的复杂系统。</p>
+<p>进入平台的内容数量以及触发人工审查所需的算法阈值是影响进入审查队列的内容数量的因素。人工审查人员的数量，他们的培训/素质，以及他们工作的工具的有效性都会影响内容审查的速度。</p>
+<p>因此，当听说“10,000人的审查人员被添加”时，它可能是（a）更多内容要被审查[阈值正被修改以将更多内容放入审查队列中）和/或（b）审查队列内容需要审查的更快[相同的内容，但更多的审查人员]。</p>
+<h2 id="_5">参考资料<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.zhihu.com/search?type=content&amp;q=NLP%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E8%89%B2%E6%83%85%E6%9A%B4%E6%81%90%E4%BF%A1%E6%81%AF">文本发垃圾在花椒直播中的应用</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            <a href='http://www.beian.miit.gov.cn'target='_blank'>京ICP备19046279号-1</a>
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
+      
+        
+        
+          
+          <script src="../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../js/extra.js"></script>
+      
+        <script src="../../../../js/baidu-tongji.js"></script>
+      
+        <script src="../../../../js/umlconvert.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+    
+  </body>
+</html>

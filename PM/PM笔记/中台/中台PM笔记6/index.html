@@ -1,0 +1,3659 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Rivers Blog">
+      
+      
+        <link rel="canonical" href="https://riversblog.site/PM/PM笔记/中台/中台PM笔记6/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>中台产品设计 - Rivers Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://riversblog.site/" title="Rivers Blog" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Rivers Blog
+            </span>
+            <span class="md-header-nav__topic">
+              
+                中台产品设计
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Rivers19/Blog/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Rivers19/Blog
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../.." class="md-tabs__link">
+          首页
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../俞军产品方法论/产品经理做什么/" class="md-tabs__link">
+          产品汪
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../Tech/AI/NLP/自然语言处理简介/" class="md-tabs__link">
+          技术
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../MacTools/iTerm2简明使用教程/" class="md-tabs__link">
+          生产力工具
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../about/" class="md-tabs__link">
+          作者
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://riversblog.site/" title="Rivers Blog" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Rivers Blog
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Rivers19/Blog/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Rivers19/Blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      首页
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        首页
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Contents" class="md-nav__link">
+      Contents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      产品汪
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        产品汪
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-1" type="checkbox" id="nav-2-1-1">
+    
+    <label class="md-nav__link" for="nav-2-1-1">
+      产品方法论
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-1">
+        产品方法论
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../俞军产品方法论/产品经理做什么/" title="产品经理做什么" class="md-nav__link">
+      产品经理做什么
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../俞军产品方法论/关于企业用户产品/" title="关于企业、用户、产品" class="md-nav__link">
+      关于企业、用户、产品
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../俞军产品方法论/交易/" title="交易" class="md-nav__link">
+      交易
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../俞军产品方法论/决策/" title="决策" class="md-nav__link">
+      决策
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-2" type="checkbox" id="nav-2-1-2">
+    
+    <label class="md-nav__link" for="nav-2-1-2">
+      高级PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-2">
+        高级PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记1/" title="产品如何从0到1？" class="md-nav__link">
+      产品如何从0到1？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记2/" title="产品经理的方向和格局" class="md-nav__link">
+      产品经理的方向和格局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记3/" title="产品地图与商业产品" class="md-nav__link">
+      产品地图与商业产品
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记4/" title="MVP实战 制作Demo" class="md-nav__link">
+      MVP实战 制作Demo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记5/" title="制作Landing Page" class="md-nav__link">
+      制作Landing Page
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记6/" title="用户调研" class="md-nav__link">
+      用户调研
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../P3notes/P3课程笔记7/" title="商业计划书和路演" class="md-nav__link">
+      商业计划书和路演
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3" checked>
+    
+    <label class="md-nav__link" for="nav-2-1-3">
+      中台PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-3">
+        中台PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记1/" title="中台PM挑战&中台意义与价值" class="md-nav__link">
+      中台PM挑战&中台意义与价值
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记2/" title="什么是中台？" class="md-nav__link">
+      什么是中台？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记3/" title="中台设计与建设" class="md-nav__link">
+      中台设计与建设
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记4/" title="中台需求分析" class="md-nav__link">
+      中台需求分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记5/" title="中台竞品分析" class="md-nav__link">
+      中台竞品分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        中台产品设计
+      </label>
+    
+    <a href="./" title="中台产品设计" class="md-nav__link md-nav__link--active">
+      中台产品设计
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 摘要
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 中台产品设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 中台化推进难度因阶段不同
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 中台产品设计的一般过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 中台产品方案实践策略
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 重新定义产品需求
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 产品设计创新方法——概念扇
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 运用概念扇的方法，重新定义产品需求
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 中台产品设计一般过程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 明确产品模式
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    3.1.2 明确中台核心模块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312_1" class="md-nav__link">
+    3.1.2 服务于前台哪些业务/系统？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    3.1.3 对前台业务/系统的服务方式？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314" class="md-nav__link">
+    3.1.4 后台依赖/打通哪些系统或服务？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#315" class="md-nav__link">
+    3.1.5 小结
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#316" class="md-nav__link">
+    3.1.6 案例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 逐个模块拆解
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    3.2.1 目标产出：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    3.2.2 拆解功能模块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" class="md-nav__link">
+    3.2.3 逐个拆解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323_1" class="md-nav__link">
+    3.2.3 案例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3231" class="md-nav__link">
+    3.2.3.1 分销业务的“角色”
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3232" class="md-nav__link">
+    3.2.3.2 拆解一级功能模块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3233" class="md-nav__link">
+    3.2.3.3 拆解功能模块
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 详细功能设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331" class="md-nav__link">
+    3.3.1 将功能描述清晰
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332" class="md-nav__link">
+    3.3.2 梳理产品流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333" class="md-nav__link">
+    3.3.3 绘制原型，明确交互
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334" class="md-nav__link">
+    3.3.4 明确产品规则：全局规则+内禀规则+交互规则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335" class="md-nav__link">
+    3.3.5 如何搞定横跨多个系统的交互逻辑【补充材料】
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    全局呈现、单个突破
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 产品设计过程中常见的坑
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 案例一
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411" class="md-nav__link">
+    4.1.1 项目背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    4.1.2 第一次返工：研发自主设计财务系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413" class="md-nav__link">
+    4.1.3 第二次返工：中台统一多业务需求，设计财务系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414" class="md-nav__link">
+    4.1.4 第三次：中台财务系统返工
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#415" class="md-nav__link">
+    4.1.5 小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 案例二
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" class="md-nav__link">
+    4.2.1 背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" class="md-nav__link">
+    4.2.2 分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423" class="md-nav__link">
+    4.2.3 小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 案例三
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431" class="md-nav__link">
+    4.3.1 背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432" class="md-nav__link">
+    4.3.2 中台期望方案：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433" class="md-nav__link">
+    4.3.3 难题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#434" class="md-nav__link">
+    4.3.4 排期
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#435" class="md-nav__link">
+    4.3.5 小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 三种典型场景中台产品实践策略
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-01" class="md-nav__link">
+    5.1 从0到1的中台产品设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511" class="md-nav__link">
+    5.1.1 设计思路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-mvp" class="md-nav__link">
+    5.1.2 MVP的设计思路在中台设计中的价值
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5121" class="md-nav__link">
+    5.1.2.1 快速验证目标、快速试错
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5122-4mvp" class="md-nav__link">
+    5.1.2.2 4个筛子，筛选哪些需求应当纳入中台MVP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513" class="md-nav__link">
+    5.1.3 案例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-1n" class="md-nav__link">
+    5.2 从1到N的中台产品实践策略
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-n" class="md-nav__link">
+    5.2.1 到N的产品目标是什么？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522" class="md-nav__link">
+    5.2.2 案例一
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5221" class="md-nav__link">
+    5.2.2.1 项目背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5222" class="md-nav__link">
+    5.2.2.2 触达系统关键目标、关键成果拆解
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523" class="md-nav__link">
+    5.2.3 案例二
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5231" class="md-nav__link">
+    5.2.3.1 项目背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5232" class="md-nav__link">
+    5.2.3.2 解决与成果
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#524" class="md-nav__link">
+    5.2.4 案例三
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#525" class="md-nav__link">
+    5.2.5 案例四
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5251" class="md-nav__link">
+    5.2.5.1 第一步促销系统与业务间解耦，支持促销系统独立对外部署
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5252" class="md-nav__link">
+    5.2.5.2 第二步：组件化改造，使系统支持某一能力的单独输出
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-n1" class="md-nav__link">
+    5.3 从N到1的中台产品实践策略
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531-n1" class="md-nav__link">
+    5.3.1 N套系统合并1套时的挑战
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532" class="md-nav__link">
+    5.3.2 案例一
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5321" class="md-nav__link">
+    5.3.2.1 项目背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5322" class="md-nav__link">
+    5.3.2.2 第一步：调研现状（进行摸底）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5323" class="md-nav__link">
+    5.3.2.3 第二步：调研完整业务需求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5324" class="md-nav__link">
+    5.3.2.4 第三步：对标行业标杆
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5325" class="md-nav__link">
+    5.3.2.5 第四步：深入梳理现有系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5326" class="md-nav__link">
+    5.3.2.6 第五步：产品方案设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5327" class="md-nav__link">
+    5.3.2.7 第六步：项目推进策略
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5328" class="md-nav__link">
+    5.3.2.8 第七步：项目落地执行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5329" class="md-nav__link">
+    5.3.2.9→：小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533" class="md-nav__link">
+    5.3.3 案例二
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    “交出来、还回去”
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记7/" title="中台项目管理" class="md-nav__link">
+      中台项目管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../中台PM笔记8/" title="中台产品运营" class="md-nav__link">
+      中台产品运营
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-4" type="checkbox" id="nav-2-1-4">
+    
+    <label class="md-nav__link" for="nav-2-1-4">
+      工具型产品
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-4">
+        工具型产品
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../工具型产品/工具型产品的一些思考/" title="工具型产品的一些思考" class="md-nav__link">
+      工具型产品的一些思考
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-5" type="checkbox" id="nav-2-1-5">
+    
+    <label class="md-nav__link" for="nav-2-1-5">
+      杂文
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-5">
+        杂文
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../杂文/张小龙关于信息互联的七点思考/" title="关于信息互联的七点思考——张小龙" class="md-nav__link">
+      关于信息互联的七点思考——张小龙
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      项目合集
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        项目合集
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/阳光筹/" title="「阳光筹」项目简介" class="md-nav__link">
+      「阳光筹」项目简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/RupiahOne官网/" title="Rupiah One官网设计" class="md-nav__link">
+      Rupiah One官网设计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/RupiahOne项目总结/" title="Rupiah One 项目总结" class="md-nav__link">
+      Rupiah One 项目总结
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/SaaS产品需求概要/" title="借贷系统SaaS化" class="md-nav__link">
+      借贷系统SaaS化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/China.cn会员后台/" title="China.cn会员后台" class="md-nav__link">
+      China.cn会员后台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/China.cn运营管理平台/" title="China.cn运营管理平台" class="md-nav__link">
+      	China.cn运营管理平台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../项目集/觅影/" title="觅影" class="md-nav__link">
+      觅影
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      技术
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        技术
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      AI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        AI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-1" type="checkbox" id="nav-3-1-1">
+    
+    <label class="md-nav__link" for="nav-3-1-1">
+      自然语言处理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-1">
+        自然语言处理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/AI/NLP/自然语言处理简介/" title="自然语言处理简介" class="md-nav__link">
+      自然语言处理简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/AI/NLP/自然语言处理应用/" title="自然语言处理应用" class="md-nav__link">
+      自然语言处理应用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-2" type="checkbox" id="nav-3-1-2">
+    
+    <label class="md-nav__link" for="nav-3-1-2">
+      机器学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-2">
+        机器学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/AI/ML/统计学习及监督学习概论/" title="CH01 统计学习及监督学习概论" class="md-nav__link">
+      CH01 统计学习及监督学习概论
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-3" type="checkbox" id="nav-3-1-3">
+    
+    <label class="md-nav__link" for="nav-3-1-3">
+      语音对话
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-3">
+        语音对话
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/AI/Speech/语音交互基础/" title="语音交互基础" class="md-nav__link">
+      语音交互基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/AI/Speech/基于特定客服领域对话系统的研究与实现/" title="基于特定客服领域对话系统的研究与实现" class="md-nav__link">
+      基于特定客服领域对话系统的研究与实现
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      DataMining
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        DataMining
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-1" type="checkbox" id="nav-3-2-1">
+    
+    <label class="md-nav__link" for="nav-3-2-1">
+      Kaggle
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-1">
+        Kaggle
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/DataMining/Kaggle/数据基础/" title="数据基础" class="md-nav__link">
+      数据基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/DataMining/Kaggle/数据描述/" title="数据描述" class="md-nav__link">
+      数据描述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/DataMining/Kaggle/Kaggle学习笔记/" title="Kaggle 学习笔记" class="md-nav__link">
+      Kaggle 学习笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-2" type="checkbox" id="nav-3-2-2">
+    
+    <label class="md-nav__link" for="nav-3-2-2">
+      SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-2">
+        SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/DataMining/SQL/SQL学习笔记/" title="MySQL in 3 hours" class="md-nav__link">
+      MySQL in 3 hours
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Basic
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Basic
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-1" type="checkbox" id="nav-3-3-1">
+    
+    <label class="md-nav__link" for="nav-3-3-1">
+      Linux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-1">
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/Basic/Linux基础/" title="Linux基础" class="md-nav__link">
+      Linux基础
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-2" type="checkbox" id="nav-3-3-2">
+    
+    <label class="md-nav__link" for="nav-3-3-2">
+      正则表达式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-2">
+        正则表达式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Tech/Basic/正则表达式/" title="正则表达式" class="md-nav__link">
+      正则表达式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      生产力工具
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        生产力工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/iTerm2简明使用教程/" title="iTerm2" class="md-nav__link">
+      iTerm2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/Typora简明使用教程/" title="Typora" class="md-nav__link">
+      Typora
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/Git常用命令清单/" title="常用Git命令" class="md-nav__link">
+      常用Git命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/GitHub搜索技巧/" title="GitHub搜索技巧" class="md-nav__link">
+      GitHub搜索技巧
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      作者
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        作者
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/" title="关于作者" class="md-nav__link">
+      关于作者
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 摘要
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 中台产品设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 中台化推进难度因阶段不同
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 中台产品设计的一般过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 中台产品方案实践策略
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 重新定义产品需求
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 产品设计创新方法——概念扇
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 运用概念扇的方法，重新定义产品需求
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 中台产品设计一般过程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 明确产品模式
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    3.1.2 明确中台核心模块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312_1" class="md-nav__link">
+    3.1.2 服务于前台哪些业务/系统？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    3.1.3 对前台业务/系统的服务方式？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314" class="md-nav__link">
+    3.1.4 后台依赖/打通哪些系统或服务？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#315" class="md-nav__link">
+    3.1.5 小结
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#316" class="md-nav__link">
+    3.1.6 案例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 逐个模块拆解
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    3.2.1 目标产出：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    3.2.2 拆解功能模块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" class="md-nav__link">
+    3.2.3 逐个拆解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323_1" class="md-nav__link">
+    3.2.3 案例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3231" class="md-nav__link">
+    3.2.3.1 分销业务的“角色”
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3232" class="md-nav__link">
+    3.2.3.2 拆解一级功能模块
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3233" class="md-nav__link">
+    3.2.3.3 拆解功能模块
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 详细功能设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331" class="md-nav__link">
+    3.3.1 将功能描述清晰
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332" class="md-nav__link">
+    3.3.2 梳理产品流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333" class="md-nav__link">
+    3.3.3 绘制原型，明确交互
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334" class="md-nav__link">
+    3.3.4 明确产品规则：全局规则+内禀规则+交互规则
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335" class="md-nav__link">
+    3.3.5 如何搞定横跨多个系统的交互逻辑【补充材料】
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    全局呈现、单个突破
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 产品设计过程中常见的坑
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 案例一
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411" class="md-nav__link">
+    4.1.1 项目背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412" class="md-nav__link">
+    4.1.2 第一次返工：研发自主设计财务系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413" class="md-nav__link">
+    4.1.3 第二次返工：中台统一多业务需求，设计财务系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414" class="md-nav__link">
+    4.1.4 第三次：中台财务系统返工
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#415" class="md-nav__link">
+    4.1.5 小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 案例二
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421" class="md-nav__link">
+    4.2.1 背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422" class="md-nav__link">
+    4.2.2 分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423" class="md-nav__link">
+    4.2.3 小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 案例三
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431" class="md-nav__link">
+    4.3.1 背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432" class="md-nav__link">
+    4.3.2 中台期望方案：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433" class="md-nav__link">
+    4.3.3 难题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#434" class="md-nav__link">
+    4.3.4 排期
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#435" class="md-nav__link">
+    4.3.5 小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 三种典型场景中台产品实践策略
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-01" class="md-nav__link">
+    5.1 从0到1的中台产品设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511" class="md-nav__link">
+    5.1.1 设计思路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-mvp" class="md-nav__link">
+    5.1.2 MVP的设计思路在中台设计中的价值
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5121" class="md-nav__link">
+    5.1.2.1 快速验证目标、快速试错
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5122-4mvp" class="md-nav__link">
+    5.1.2.2 4个筛子，筛选哪些需求应当纳入中台MVP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513" class="md-nav__link">
+    5.1.3 案例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-1n" class="md-nav__link">
+    5.2 从1到N的中台产品实践策略
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-n" class="md-nav__link">
+    5.2.1 到N的产品目标是什么？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522" class="md-nav__link">
+    5.2.2 案例一
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5221" class="md-nav__link">
+    5.2.2.1 项目背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5222" class="md-nav__link">
+    5.2.2.2 触达系统关键目标、关键成果拆解
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523" class="md-nav__link">
+    5.2.3 案例二
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5231" class="md-nav__link">
+    5.2.3.1 项目背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5232" class="md-nav__link">
+    5.2.3.2 解决与成果
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#524" class="md-nav__link">
+    5.2.4 案例三
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#525" class="md-nav__link">
+    5.2.5 案例四
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5251" class="md-nav__link">
+    5.2.5.1 第一步促销系统与业务间解耦，支持促销系统独立对外部署
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5252" class="md-nav__link">
+    5.2.5.2 第二步：组件化改造，使系统支持某一能力的单独输出
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-n1" class="md-nav__link">
+    5.3 从N到1的中台产品实践策略
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531-n1" class="md-nav__link">
+    5.3.1 N套系统合并1套时的挑战
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532" class="md-nav__link">
+    5.3.2 案例一
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5321" class="md-nav__link">
+    5.3.2.1 项目背景
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5322" class="md-nav__link">
+    5.3.2.2 第一步：调研现状（进行摸底）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5323" class="md-nav__link">
+    5.3.2.3 第二步：调研完整业务需求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5324" class="md-nav__link">
+    5.3.2.4 第三步：对标行业标杆
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5325" class="md-nav__link">
+    5.3.2.5 第四步：深入梳理现有系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5326" class="md-nav__link">
+    5.3.2.6 第五步：产品方案设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5327" class="md-nav__link">
+    5.3.2.7 第六步：项目推进策略
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5328" class="md-nav__link">
+    5.3.2.8 第七步：项目落地执行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5329" class="md-nav__link">
+    5.3.2.9→：小结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533" class="md-nav__link">
+    5.3.3 案例二
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    “交出来、还回去”
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Rivers19/Blog/edit/master/docs/PM/PM笔记/中台/中台PM笔记6.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="_1">中台产品设计<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>扩业务系统设计</p>
+</blockquote>
+<h2 id="1">1. 摘要<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 中台产品设计<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>覆盖业务场景多，一旦返工，成本较高</li>
+<li>既要考虑当前业务的复用，还要预见未来业务场景</li>
+<li>业务“紧急”vs中台“重要”，中台PM需要有“主见”</li>
+</ul>
+<p>→：中台产品对方案设计的正确性、完整度要求较高</p>
+<h3 id="12">1.2 中台化推进难度因阶段不同<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>从0到1：没有业务部门阻碍，但需要追求响应速度</li>
+<li>从1到N：业务需求繁杂vs中台自己的使命</li>
+<li>多套系统→1套：老系统切换成本&amp;对现有业务影响的风险</li>
+</ul>
+<p>→：需要根据不同的阶段，调整实践策略</p>
+<h3 id="13">1.3 中台产品设计的一般过程<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>明确中台产品模式，与业务方达成一致 </li>
+<li>逐个拆分业务模块，避免遗漏</li>
+<li>流程+原型+规则，详细描述功能</li>
+</ul>
+<h3 id="14">1.4 中台产品方案实践策略<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>从0到1：从无到有搭建中台</li>
+<li>从1到N：找准方向做强中台</li>
+<li>从N到1：整合业务抽象中台</li>
+</ul>
+<h2 id="2">2. 重新定义产品需求<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>追本溯源，找到真正的问题，并给出多样的解决方案</p>
+</blockquote>
+<h3 id="21">2.1 产品设计创新方法——概念扇<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20191002171028125" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-091028.png" /></p>
+<h3 id="22">2.2 运用概念扇的方法，重新定义产品需求<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20191002171144385" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-091144.png" /></p>
+<h2 id="3">3. 中台产品设计一般过程<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>明确产品模式→逐个模块拆解→详细功能设计</p>
+</blockquote>
+<h3 id="31">3.1 明确产品模式<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<blockquote>
+<ul>
+<li>产品模式：<ul>
+<li>（这个中台产品）到底是什么，能帮助哪些业务/系统，提供什么能力、解决什么问题</li>
+</ul>
+</li>
+<li>有哪些功能？</li>
+<li>服务于哪些业务？</li>
+<li>依赖于哪些系统？</li>
+</ul>
+</blockquote>
+<h4 id="312">3.1.2 明确中台核心模块<a class="headerlink" href="#312" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>一级即可</p>
+<p><img alt="image-20191002171638663" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-091639.png" /></p>
+</li>
+</ul>
+<h4 id="312_1">3.1.2 服务于前台哪些业务/系统？<a class="headerlink" href="#312_1" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20191002171735163" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-091735.png" /></p>
+<h4 id="313">3.1.3 对前台业务/系统的服务方式？<a class="headerlink" href="#313" title="Permanent link">&para;</a></h4>
+<p>一些常见的服务模式：</p>
+<ul>
+<li>H5:前台业务可以直接使用的“页面”</li>
+<li>API：直接传输相应的数据，供前台业务二次组装</li>
+<li>SDK：需要原生APP场景下，可通过SDK进行封装</li>
+</ul>
+<h4 id="314">3.1.4 后台依赖/打通哪些系统或服务？<a class="headerlink" href="#314" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20191002172031658" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-092031.png" /></p>
+<h4 id="315">3.1.5 小结<a class="headerlink" href="#315" title="Permanent link">&para;</a></h4>
+<ul>
+<li>XX中台系统，有*哪些中台模块*</li>
+<li>通过什么服务模式 服务于 哪些前台业务/系统</li>
+<li>这需要依赖/打通 哪些后台系统或服务</li>
+</ul>
+<h4 id="316">3.1.6 案例<a class="headerlink" href="#316" title="Permanent link">&para;</a></h4>
+<p>电商中台产品模式</p>
+<p><img alt="image-20191002172332950" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-092333.png" /></p>
+<h3 id="32">3.2 逐个模块拆解<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<h4 id="321">3.2.1 目标产出：<a class="headerlink" href="#321" title="Permanent link">&para;</a></h4>
+<ul>
+<li>待设计的具体功能细目（清单）</li>
+<li>功能-角色的对应关系，以便后续设计时，场景/权限明确</li>
+</ul>
+<p><img alt="image-20191002172947337" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-092947.png" /></p>
+<h4 id="322">3.2.2 拆解功能模块<a class="headerlink" href="#322" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20191002173035180" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-093035.png" /></p>
+<h4 id="323">3.2.3 逐个拆解<a class="headerlink" href="#323" title="Permanent link">&para;</a></h4>
+<ul>
+<li>详细流程：<ul>
+<li>明确大致系统</li>
+<li>明确参与角色</li>
+<li>拆解一级模块（通过「角色-用例」关系）</li>
+<li>细化至二级/三级/四级......模块</li>
+</ul>
+</li>
+</ul>
+<h4 id="323_1">3.2.3 案例<a class="headerlink" href="#323_1" title="Permanent link">&para;</a></h4>
+<h5 id="3231">3.2.3.1 分销业务的“角色”<a class="headerlink" href="#3231" title="Permanent link">&para;</a></h5>
+<p><img alt="image-20191002173354698" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-093355.png" /></p>
+<h5 id="3232">3.2.3.2 拆解一级功能模块<a class="headerlink" href="#3232" title="Permanent link">&para;</a></h5>
+<p><img alt="image-20191002173519382" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-093519.png" /></p>
+<h5 id="3233">3.2.3.3 拆解功能模块<a class="headerlink" href="#3233" title="Permanent link">&para;</a></h5>
+<p><img alt="image-20191002173558885" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-093559.png" /></p>
+<h3 id="33">3.3 详细功能设计<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<h4 id="331">3.3.1 将功能描述清晰<a class="headerlink" href="#331" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20191002173926575" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-093927.png" /></p>
+<ul>
+<li>流程：明确依赖关系</li>
+<li>原型：明确交互与所需字段</li>
+<li>规则：明确各类规则权限</li>
+</ul>
+<p>→ 三者互相促进，共同将功能描述清晰</p>
+<h4 id="332">3.3.2 梳理产品流程<a class="headerlink" href="#332" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20191002174348313" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-094348.png" /></p>
+<p><img alt="image-20191002174416360" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-094416.png" /></p>
+<h4 id="333">3.3.3 绘制原型，明确交互<a class="headerlink" href="#333" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20191002174451314" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-094451.png" /></p>
+<h4 id="334">3.3.4 明确产品规则：全局规则+内禀规则+交互规则<a class="headerlink" href="#334" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20191002174607143" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-094607.png" /></p>
+<p><img alt="image-20191002191110175" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-111110.png" /></p>
+<p><img alt="image-20191002191139289" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-111139.png" /></p>
+<p><img alt="image-20191002191445082" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-111445.png" /></p>
+<h4 id="335">3.3.5 如何搞定横跨多个系统的交互逻辑【补充材料】<a class="headerlink" href="#335" title="Permanent link">&para;</a></h4>
+<h5 id="_2">全局呈现、单个突破<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li>复杂流程<ul>
+<li>分而治之、逐个解决</li>
+<li>重点关注扯皮或逻辑异常复（混）杂（乱）的环节</li>
+</ul>
+</li>
+<li>合作伙伴掉链子时<ul>
+<li>灵活补位：产品、研发、项目经理均可能力补位</li>
+<li>产品与产品之间|产品与研发之间|产品与项目经理之间.......</li>
+</ul>
+</li>
+</ul>
+<h2 id="4">4. 产品设计过程中常见的坑<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>业务需求调研不彻底</p>
+<p>依赖关系定位不清</p>
+<p>统一标准难建立</p>
+</blockquote>
+<h3 id="41">4.1 案例一<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>财务系统设计的三次大返工</p>
+<h4 id="411">4.1.1 项目背景<a class="headerlink" href="#411" title="Permanent link">&para;</a></h4>
+<ul>
+<li>各业务均需要财务系统支持<ul>
+<li>各业务/子业务处于业务需求，均建立了一套财务系统</li>
+<li>各业务/子业务的账务系统互不相同，形成了烟囱林立的局面</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20191002192343888" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-112344.png" /></p>
+<h4 id="412">4.1.2 第一次返工：研发自主设计财务系统<a class="headerlink" href="#412" title="Permanent link">&para;</a></h4>
+<ul>
+<li>经过几次部门调整，业务A将各子业务的研发合并到了一个研发团队</li>
+<li>研发负责人牵头，进行了一次财务合并，但并未覆盖全部子业务场景</li>
+</ul>
+<h4 id="413">4.1.3 第二次返工：中台统一多业务需求，设计财务系统<a class="headerlink" href="#413" title="Permanent link">&para;</a></h4>
+<ul>
+<li>基于业务A原有的财务系统</li>
+<li>调研了A系统现状及其未覆盖的子业务、B业务、C业务，设计了一套统一的中台财务系统</li>
+</ul>
+<h4 id="414">4.1.4 第三次：中台财务系统返工<a class="headerlink" href="#414" title="Permanent link">&para;</a></h4>
+<ul>
+<li>在做产品方案评审时，发现A业务部门下仍有子业务系统场景缺失<ul>
+<li>误认为原A业务下的财务合并系统已经覆盖了该业务的全部场景</li>
+<li>中台产品方案梳理时，只梳理了合并后的财务系统，对子业务场景没有再深入分析</li>
+</ul>
+</li>
+</ul>
+<h4 id="415">4.1.5 小结<a class="headerlink" href="#415" title="Permanent link">&para;</a></h4>
+<p>→：需求调研务必完善，切勿心存侥幸（不完善，即便进行了产品设计也往往容易返工）</p>
+<h3 id="42">4.2 案例二<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>上游订单系统对接的“排期难题”</p>
+<h4 id="421">4.2.1 背景<a class="headerlink" href="#421" title="Permanent link">&para;</a></h4>
+<ul>
+<li>广告业务希望中台以MQ消息形式为广告业务提供订单信息</li>
+<li>中台产品希望订单系统也以MQ消息的形式提供数据，便于开发</li>
+<li>反复催促订单系统配合，仍排期6个月无果</li>
+</ul>
+<h4 id="422">4.2.2 分析<a class="headerlink" href="#422" title="Permanent link">&para;</a></h4>
+<ul>
+<li>需求成立的理由存疑<ul>
+<li>订单系统已有一套标准的可区分订单来源的API查询接口，统一对外提供服务</li>
+</ul>
+</li>
+<li>MQ消息适用场景不匹配<ul>
+<li>MQ消息是一种内部机制，是以内部可信任的逻辑应用的，数据不区分渠道，一旦提供就是全部广告数据，比较敏感，风险高</li>
+</ul>
+</li>
+<li>定制化价值不充分<ul>
+<li>中台系统与底层的订单系统公司主体不同，二者目标互不相干</li>
+</ul>
+</li>
+</ul>
+<p>→ 即使再催6个月，订单系统的研发也没有动力排期</p>
+<h4 id="423">4.2.3 小结<a class="headerlink" href="#423" title="Permanent link">&para;</a></h4>
+<p>→：适当深入底层，避免简单透传（深入了解合作团队环境、系统逻辑）</p>
+<p>「透传」：透明传送，指无论传输业务如何，网络只负责将需要传送的业务送达目的节点，同时保证</p>
+<h3 id="43">4.3 案例三<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p>多业务系统标准统一的难题</p>
+<h4 id="431">4.3.1 背景<a class="headerlink" href="#431" title="Permanent link">&para;</a></h4>
+<ul>
+<li>订单数据中，需要存储分销相关信息<ul>
+<li>A部门：<ul>
+<li>一级代理字段、二级代理字段、无扩展字段；</li>
+<li>一级代理字段平时不用，当扩展字段使用</li>
+</ul>
+</li>
+<li>B部门：标准的一级代理、二级代理字段，无扩展字段</li>
+<li>C、D部门：无分销系统，需要新建</li>
+</ul>
+</li>
+</ul>
+<h4 id="432">4.3.2 中台期望方案：<a class="headerlink" href="#432" title="Permanent link">&para;</a></h4>
+<ul>
+<li>建立标准的一级、二级代理字段、扩展字段</li>
+<li>扩展字段记录中台分销任务及其他扩展信息</li>
+</ul>
+<h4 id="433">4.3.3 难题<a class="headerlink" href="#433" title="Permanent link">&para;</a></h4>
+<ul>
+<li>字段定义标准化问题   【除A部门外，达成共识】<ul>
+<li>A部门：不愿新增字段，觉得“一级代理字段”可当扩展字段</li>
+<li>B部门：出于业务需要，在多轮公关下愿意新增扩展字段</li>
+<li>C、D部门：本就没有系统，欣然接受按新标准开发</li>
+</ul>
+</li>
+<li>字段格式标准化问题    【均达成共识】<ul>
+<li>A、B部门定义的字段长度不够，满足不了中台要求，需要扩容</li>
+</ul>
+</li>
+</ul>
+<h4 id="434">4.3.4 排期<a class="headerlink" href="#434" title="Permanent link">&para;</a></h4>
+<ul>
+<li>一期：妥协，先定义字段标准，实现业务运行</li>
+<li>二期：循序渐进，逐渐实现系统统一</li>
+</ul>
+<h4 id="435">4.3.5 小结<a class="headerlink" href="#435" title="Permanent link">&para;</a></h4>
+<p>→：抓大放小，明确主要矛盾（做好心理准备，定好标准，来日方长）</p>
+<h2 id="5">5. 三种典型场景中台产品实践策略<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51-01">5.1 从0到1的中台产品设计<a class="headerlink" href="#51-01" title="Permanent link">&para;</a></h3>
+<h4 id="511">5.1.1 设计思路<a class="headerlink" href="#511" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>产品架构：往大的地方想</p>
+<ul>
+<li>中台产品往往是公司级大项目，议题大</li>
+<li>覆盖场景广、业务多，要看到更广阔的未来</li>
+</ul>
+<p>→：产品基于大的愿景拆解价值假设</p>
+</li>
+<li>
+<p>落地执行：往小的地方做</p>
+<ul>
+<li>找好切入点，从实际角度思考</li>
+<li>优先确保「业务可用」</li>
+</ul>
+<p>→：构建符合产品功能预期的最小功能合集，以便快速搭建，以满足产品部署的要求；快速验证有关客户与产品交互的关键假设</p>
+</li>
+</ul>
+<h4 id="512-mvp">5.1.2 MVP的设计思路在中台设计中的价值<a class="headerlink" href="#512-mvp" title="Permanent link">&para;</a></h4>
+<h5 id="5121">5.1.2.1 快速验证目标、快速试错<a class="headerlink" href="#5121" title="Permanent link">&para;</a></h5>
+<ul>
+<li>快速战略卡位<ul>
+<li>快速让产品在公司先运行起来，占领业务领域</li>
+<li>避免业务迫于业绩和发展压力，又起更多的“烟囱”</li>
+</ul>
+</li>
+<li>快速满足业务<ul>
+<li>先让业务快速应用，提升业务满意度，以便获得后续更多开发时间</li>
+<li>避免被中台化战略“迷惑”，为了做大而全的系统，反而影响中台开展进度</li>
+</ul>
+</li>
+<li>今早建立规范<ul>
+<li>让业务团队今早熟悉中台化产品和运营模式，便于后续业务接入</li>
+</ul>
+</li>
+</ul>
+<h5 id="5122-4mvp">5.1.2.2 4个筛子，筛选哪些需求应当纳入中台MVP<a class="headerlink" href="#5122-4mvp" title="Permanent link">&para;</a></h5>
+<p>产品内核、战略价值、开工条件、合作意愿</p>
+<ul>
+<li>产品内核</li>
+</ul>
+<p><img alt="image-20191002201414324" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-121414.png" /></p>
+<p>eg.电商平台的「内核」系统</p>
+<p><img alt="image-20191002201519251" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-121519.png" /></p>
+<ul>
+<li>
+<p>战略价值</p>
+<p>......先做什么，对公司、对部门或对产品具备最大的战略价值？    </p>
+<ul>
+<li>
+<p>对公司的战略价值</p>
+<ul>
+<li>
+<p>公司意图打三四线城市：</p>
+<p>→：打造基于下沉市场的分销产品模式的业务单元/功能模块</p>
+</li>
+</ul>
+</li>
+<li>
+<p>对部门的战略价值</p>
+<ul>
+<li>
+<p>部门主管电商业务：</p>
+<p>→：打造电商平台的核心模块/组件</p>
+</li>
+</ul>
+</li>
+<li>
+<p>对产品本身的战略价值</p>
+<ul>
+<li>分销中台产品，上游产品&amp;下游代理接入都需要消耗成本</li>
+<li>上游产品接入后，下游不得不接入→优先搞定上游产品接入</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>开工条件</p>
+<p>......中台产品交付设计/研发前，所需的前置条件是否被满足？</p>
+<ul>
+<li>产品设计</li>
+<li>业务流程</li>
+<li>业务模式</li>
+<li>技术条件</li>
+<li>业务资质</li>
+</ul>
+</li>
+<li>
+<p>合作意愿</p>
+<p><img alt="image-20191002202319843" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-122319.png" /></p>
+</li>
+</ul>
+<h4 id="513">5.1.3 案例<a class="headerlink" href="#513" title="Permanent link">&para;</a></h4>
+<p>分销平台的MVP</p>
+<ul>
+<li>产品内核：哪些是产品最基础的模块？</li>
+</ul>
+<p><img alt="image-20191002202604511" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-122604.png" /></p>
+<p><img alt="image-20191002202731832" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-122731.png" /></p>
+<ul>
+<li>分享产品接入的选择</li>
+</ul>
+<p><img alt="image-20191002202848852" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-122849.png" /></p>
+<ul>
+<li>现有渠道接入的选择</li>
+</ul>
+<p><img alt="image-20191002202930126" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-02-122930.png" /></p>
+<h3 id="52-1n">5.2 从1到N的中台产品实践策略<a class="headerlink" href="#52-1n" title="Permanent link">&para;</a></h3>
+<h4 id="521-n">5.2.1 到N的产品目标是什么？<a class="headerlink" href="#521-n" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>夯实基础能力</p>
+<ul>
+<li>查漏补缺，必须要干</li>
+</ul>
+</li>
+<li>
+<p>助力运营效率</p>
+<blockquote>
+<p>去重和复用</p>
+</blockquote>
+<ul>
+<li>与运营频繁接触，了解痛点，明确问题</li>
+</ul>
+</li>
+<li>
+<p>助力研发效率</p>
+<ul>
+<li>平台化：系统集成/统一，减少重复开发</li>
+<li>标准化、组件化：支持前台系统灵活调用</li>
+<li>产品化、商业化：支持对外输出</li>
+</ul>
+</li>
+<li>
+<p>提升数据表现</p>
+<blockquote>
+<p>更好地证明系统价值（系统能力/研发产能/科技力量）</p>
+</blockquote>
+<ul>
+<li>产品价值量化<ul>
+<li>收入指标：GMV、毛利、客户覆盖度、市场占有率......</li>
+<li>产品指标：用户提留时长、转化率、跳转率（退出率）、留存率、UV、PV......</li>
+<li>内部效率（技术指标）：需求响应速度、系统服务客户数、节约的人力成本（时间/人数）、接口调用量、服务响应速度、成功率、bug数......</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>→：如何筛选需求？</p>
+<ul>
+<li>业务叫得最凶、客户投诉最多、老板期望最高、产品价值最优</li>
+</ul>
+<p>借助目标&amp;关键结果，便面产品失焦</p>
+<h4 id="522">5.2.2 案例一<a class="headerlink" href="#522" title="Permanent link">&para;</a></h4>
+<p>触达系统的从1到N</p>
+<h5 id="5221">5.2.2.1 项目背景<a class="headerlink" href="#5221" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>触达系统完成从0到1的生产建设后，从1到N阶段的核心目标为：全部业务接入，统一公司所有短信业务</p>
+</li>
+<li>
+<p>但在工作中，由于中台系统尚不完善，大量时间花在了功能优化上，6个月的时间中，业务接入进度不佳</p>
+</li>
+</ul>
+<h5 id="5222">5.2.2.2 触达系统关键目标、关键成果拆解<a class="headerlink" href="#5222" title="Permanent link">&para;</a></h5>
+<p><img alt="image-20191006131543931" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-051724.png" /></p>
+<p><img alt="image-20191006135226051" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-055226.png" /></p>
+<h4 id="523">5.2.3 案例二<a class="headerlink" href="#523" title="Permanent link">&para;</a></h4>
+<p>线上自主解除实名&amp;销户项目</p>
+<h5 id="5231">5.2.3.1 项目背景<a class="headerlink" href="#5231" title="Permanent link">&para;</a></h5>
+<ul>
+<li>金融类账户（钱包、贷款户等）应监管及风控要求，都需实名认证。由于历史原因，中台实名认证系统早期没有提供线上解除的功能。</li>
+<li>实际运行中，确实有不少需要解除实名的用户，他们都通过客服电话的方式要求操作，客服人力成本极高。</li>
+<li>客服负责人对此很痛，希望中台予以帮助</li>
+</ul>
+<h5 id="5232">5.2.3.2 解决与成果<a class="headerlink" href="#5232" title="Permanent link">&para;</a></h5>
+<ul>
+<li>解除实名，需要对所有已开通的金融业务进行销户，牵扯较大</li>
+<li>经过三个月的努力，中台打通了各金融业务系统的自动销户，实现了用户线上自助销户、解除实名</li>
+<li>节约了实名解除业务的30%的客服人员</li>
+</ul>
+<h4 id="524">5.2.4 案例三<a class="headerlink" href="#524" title="Permanent link">&para;</a></h4>
+<p>优惠券实时运营控制台</p>
+<p><img alt="image-20191006133031319" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-053031.png" /></p>
+<ul>
+<li>
+<p>中台PM洞察到：存在提升运营效率的机会，故制定了「优惠券实时运营控制台」的方案。</p>
+</li>
+<li>
+<p>深入业务场景、访谈业务运营人员、观察实际操作后，发现可在以下方面助力运营效率：</p>
+</li>
+</ul>
+<p><img alt="image-20191006133325805" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-053326.png" /></p>
+<h4 id="525">5.2.5 案例四<a class="headerlink" href="#525" title="Permanent link">&para;</a></h4>
+<p>促销系统组件化</p>
+<h5 id="5251">5.2.5.1 第一步促销系统与业务间解耦，支持促销系统独立对外部署<a class="headerlink" href="#5251" title="Permanent link">&para;</a></h5>
+<p><img alt="image-20191006133839958" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-053840.png" /></p>
+<h5 id="5252">5.2.5.2 第二步：组件化改造，使系统支持某一能力的单独输出<a class="headerlink" href="#5252" title="Permanent link">&para;</a></h5>
+<p><img alt="image-20191006133946368" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-053946.png" /></p>
+<p><img alt="image-20191006134113207" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-054114.png" /></p>
+<h3 id="53-n1">5.3 从N到1的中台产品实践策略<a class="headerlink" href="#53-n1" title="Permanent link">&para;</a></h3>
+<h4 id="531-n1">5.3.1 N套系统合并1套时的挑战<a class="headerlink" href="#531-n1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>各业务单元系统运营机制参差不齐<ul>
+<li>成熟系统不想被整合</li>
+<li>不成熟系统的想借力</li>
+<li>未成立的业务需要你提前“预见”</li>
+</ul>
+</li>
+<li>整合过程中/过程后，业务部门短期往往“得不尝失”<ul>
+<li>业务部门有接入成本，挤占了本可用于业务迭代的研发资源</li>
+<li>中台系统上线后，运营/业务需要一定的适应过程，业绩可能不升反降</li>
+</ul>
+</li>
+</ul>
+<h4 id="532">5.3.2 案例一<a class="headerlink" href="#532" title="Permanent link">&para;</a></h4>
+<p>页面数据采集系统整合</p>
+<h5 id="5321">5.3.2.1 项目背景<a class="headerlink" href="#5321" title="Permanent link">&para;</a></h5>
+<p>页面数据采集系统，内部又称“埋点系统”，在中台成立之初，发现公司内部这样的基础系统至少有6套，重复建设严重，需要整合</p>
+<h5 id="5322">5.3.2.2 第一步：调研现状（进行摸底）<a class="headerlink" href="#5322" title="Permanent link">&para;</a></h5>
+<ul>
+<li>现状分析示意</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>覆盖业务范围</th>
+<th>采集字段</th>
+<th>可采集指标</th>
+<th>日均采集量</th>
+<th>优</th>
+<th>劣</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A系统</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>B系统</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C系统</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>D系统</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E系统</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>F系统</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>G系统</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="5323">5.3.2.3 第二步：调研完整业务需求<a class="headerlink" href="#5323" title="Permanent link">&para;</a></h5>
+<ul>
+<li>需求访谈/需求分析示意</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>对接人</th>
+<th>需求说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A业务</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>B业务</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C业务</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>......</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="5324">5.3.2.4 第三步：对标行业标杆<a class="headerlink" href="#5324" title="Permanent link">&para;</a></h5>
+<ul>
+<li>竞品分析示意</li>
+</ul>
+<p><img alt="image-20191006150004336" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-070005.png" /></p>
+<h5 id="5325">5.3.2.5 第四步：深入梳理现有系统<a class="headerlink" href="#5325" title="Permanent link">&para;</a></h5>
+<ul>
+<li>现有系统详细分析示意</li>
+</ul>
+<p><img alt="image-20191006150055851" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-070056.png" /></p>
+<h5 id="5326">5.3.2.6 第五步：产品方案设计<a class="headerlink" href="#5326" title="Permanent link">&para;</a></h5>
+<ul>
+<li>初步解决方案示意</li>
+</ul>
+<p><img alt="image-20191006150137349" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-070138.png" /></p>
+<h5 id="5327">5.3.2.7 第六步：项目推进策略<a class="headerlink" href="#5327" title="Permanent link">&para;</a></h5>
+<ul>
+<li>项目推进计划示意</li>
+</ul>
+<p><img alt="image-20191006150215723" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-070215.png" /></p>
+<h5 id="5328">5.3.2.8 第七步：项目落地执行<a class="headerlink" href="#5328" title="Permanent link">&para;</a></h5>
+<ul>
+<li>项目进度管理示意</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>业务部门</th>
+<th>产品需求</th>
+<th>计划上线时间</th>
+<th>实际上线时间</th>
+<th>负责人</th>
+<th>当前状态</th>
+<th>研发进度</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="5329">5.3.2.9→：小结<a class="headerlink" href="#5329" title="Permanent link">&para;</a></h5>
+<p><img alt="image-20191006150422046" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-070422.png" /></p>
+<p>应对页面数据采集系统整合过程中遇到的挑战</p>
+<ul>
+<li>各业务单元参差不齐<ul>
+<li>投入大量时间，充分分析业务现状、业务需求、竞品，保证业务场景分析全面，方案设计全覆盖</li>
+<li>全面、深入地梳理业务现状，找到有效的业务切入点</li>
+</ul>
+</li>
+<li>整合过程中/过程后，业务部门短期往往“得不偿失”<ul>
+<li>先整合不成熟（切换成本低）的系统，逐渐整合成熟系统</li>
+<li>项目规划时，就应该考虑到整合/接入成本，提前做好实施计划，并备好资源（项目经理），确保有效推进</li>
+<li>“交出来、还回去”</li>
+</ul>
+</li>
+</ul>
+<h4 id="533">5.3.3 案例二<a class="headerlink" href="#533" title="Permanent link">&para;</a></h4>
+<p>营销系统整合</p>
+<p><img alt="image-20191006151037157" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2019-10-06-071037.png" /></p>
+<h5 id="_3">“交出来、还回去”<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<p>......需要“还回去”的系统的判断标准</p>
+<ul>
+<li>（业务角度）系统覆盖的业务场景过窄，不可复用</li>
+<li>（研发角度）中台产研来做，成本反而更高</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../中台PM笔记5/" title="中台竞品分析" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                中台竞品分析
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../中台PM笔记7/" title="中台项目管理" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                中台项目管理
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            <a href='http://www.beian.miit.gov.cn'target='_blank'>京ICP备19046279号-1</a>
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
+      
+        
+        
+          
+          <script src="../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../js/extra.js"></script>
+      
+        <script src="../../../../js/baidu-tongji.js"></script>
+      
+        <script src="../../../../js/umlconvert.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+    
+  </body>
+</html>

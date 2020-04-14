@@ -1,0 +1,2944 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Rivers Blog">
+      
+      
+        <link rel="canonical" href="https://riversblog.site/Tech/AI/Speech/基于特定客服领域对话系统的研究与实现/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>基于特定客服领域对话系统的研究与实现 - Rivers Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://riversblog.site/" title="Rivers Blog" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Rivers Blog
+            </span>
+            <span class="md-header-nav__topic">
+              
+                基于特定客服领域对话系统的研究与实现
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/Rivers19/Blog/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Rivers19/Blog
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../.." class="md-tabs__link">
+          首页
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../PM/PM笔记/俞军产品方法论/产品经理做什么/" class="md-tabs__link">
+          产品汪
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../NLP/自然语言处理简介/" class="md-tabs__link">
+          技术
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../MacTools/iTerm2简明使用教程/" class="md-tabs__link">
+          生产力工具
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../about/" class="md-tabs__link">
+          作者
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://riversblog.site/" title="Rivers Blog" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Rivers Blog
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/Rivers19/Blog/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Rivers19/Blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      首页
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        首页
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Contents" class="md-nav__link">
+      Contents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      产品汪
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        产品汪
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-1" type="checkbox" id="nav-2-1-1">
+    
+    <label class="md-nav__link" for="nav-2-1-1">
+      产品方法论
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-1">
+        产品方法论
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/俞军产品方法论/产品经理做什么/" title="产品经理做什么" class="md-nav__link">
+      产品经理做什么
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/俞军产品方法论/关于企业用户产品/" title="关于企业、用户、产品" class="md-nav__link">
+      关于企业、用户、产品
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/俞军产品方法论/交易/" title="交易" class="md-nav__link">
+      交易
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/俞军产品方法论/决策/" title="决策" class="md-nav__link">
+      决策
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-2" type="checkbox" id="nav-2-1-2">
+    
+    <label class="md-nav__link" for="nav-2-1-2">
+      高级PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-2">
+        高级PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记1/" title="产品如何从0到1？" class="md-nav__link">
+      产品如何从0到1？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记2/" title="产品经理的方向和格局" class="md-nav__link">
+      产品经理的方向和格局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记3/" title="产品地图与商业产品" class="md-nav__link">
+      产品地图与商业产品
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记4/" title="MVP实战 制作Demo" class="md-nav__link">
+      MVP实战 制作Demo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记5/" title="制作Landing Page" class="md-nav__link">
+      制作Landing Page
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记6/" title="用户调研" class="md-nav__link">
+      用户调研
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/P3notes/P3课程笔记7/" title="商业计划书和路演" class="md-nav__link">
+      商业计划书和路演
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3">
+    
+    <label class="md-nav__link" for="nav-2-1-3">
+      中台PM笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-3">
+        中台PM笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记1/" title="中台PM挑战&中台意义与价值" class="md-nav__link">
+      中台PM挑战&中台意义与价值
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记2/" title="什么是中台？" class="md-nav__link">
+      什么是中台？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记3/" title="中台设计与建设" class="md-nav__link">
+      中台设计与建设
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记4/" title="中台需求分析" class="md-nav__link">
+      中台需求分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记5/" title="中台竞品分析" class="md-nav__link">
+      中台竞品分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记6/" title="中台产品设计" class="md-nav__link">
+      中台产品设计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记7/" title="中台项目管理" class="md-nav__link">
+      中台项目管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/中台/中台PM笔记8/" title="中台产品运营" class="md-nav__link">
+      中台产品运营
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-4" type="checkbox" id="nav-2-1-4">
+    
+    <label class="md-nav__link" for="nav-2-1-4">
+      工具型产品
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-4">
+        工具型产品
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/工具型产品/工具型产品的一些思考/" title="工具型产品的一些思考" class="md-nav__link">
+      工具型产品的一些思考
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-5" type="checkbox" id="nav-2-1-5">
+    
+    <label class="md-nav__link" for="nav-2-1-5">
+      杂文
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-5">
+        杂文
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/PM笔记/杂文/张小龙关于信息互联的七点思考/" title="关于信息互联的七点思考——张小龙" class="md-nav__link">
+      关于信息互联的七点思考——张小龙
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      项目合集
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        项目合集
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/阳光筹/" title="「阳光筹」项目简介" class="md-nav__link">
+      「阳光筹」项目简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/RupiahOne官网/" title="Rupiah One官网设计" class="md-nav__link">
+      Rupiah One官网设计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/RupiahOne项目总结/" title="Rupiah One 项目总结" class="md-nav__link">
+      Rupiah One 项目总结
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/SaaS产品需求概要/" title="借贷系统SaaS化" class="md-nav__link">
+      借贷系统SaaS化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/China.cn会员后台/" title="China.cn会员后台" class="md-nav__link">
+      China.cn会员后台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/China.cn运营管理平台/" title="China.cn运营管理平台" class="md-nav__link">
+      	China.cn运营管理平台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../PM/项目集/觅影/" title="觅影" class="md-nav__link">
+      觅影
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      技术
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        技术
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
+    
+    <label class="md-nav__link" for="nav-3-1">
+      AI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        AI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-1" type="checkbox" id="nav-3-1-1">
+    
+    <label class="md-nav__link" for="nav-3-1-1">
+      自然语言处理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-1">
+        自然语言处理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../NLP/自然语言处理简介/" title="自然语言处理简介" class="md-nav__link">
+      自然语言处理简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../NLP/自然语言处理应用/" title="自然语言处理应用" class="md-nav__link">
+      自然语言处理应用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-2" type="checkbox" id="nav-3-1-2">
+    
+    <label class="md-nav__link" for="nav-3-1-2">
+      机器学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-2">
+        机器学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ML/统计学习及监督学习概论/" title="CH01 统计学习及监督学习概论" class="md-nav__link">
+      CH01 统计学习及监督学习概论
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-3" type="checkbox" id="nav-3-1-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-1-3">
+      语音对话
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-3">
+        语音对话
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../语音交互基础/" title="语音交互基础" class="md-nav__link">
+      语音交互基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        基于特定客服领域对话系统的研究与实现
+      </label>
+    
+    <a href="./" title="基于特定客服领域对话系统的研究与实现" class="md-nav__link md-nav__link--active">
+      基于特定客服领域对话系统的研究与实现
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    一、研究内容
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 中文文本数据预处理方法的研究。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 单轮对话关键技术的设计和实现。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 基于上下文的多轮对话机制的研究
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    二、相关技术
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1. 中文自然语言处理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 中文分词
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 词向量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2. 深度神经网络
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-cnn" class="md-nav__link">
+    2.1 卷积神经网络CNN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rnn" class="md-nav__link">
+    2.2. 循环神经网络RNN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-restful-api" class="md-nav__link">
+    2.3 RESTful API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    三. 客服机器人系统设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1. 总体架构设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    1.1 客服机器人软件应用结构图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    1.2 客服机器人系统拓扑图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2. 客服机器人系统功能设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 单轮问答系统设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 多轮对话系统设计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3. 数据库设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 单轮问答数据库设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 多轮对话数据库设计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    四、单轮问答系统关键技术设计实现
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    1. 文本预处理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_2" class="md-nav__link">
+    1.1 中文分词介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_2" class="md-nav__link">
+    1.2 中文分词实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    2. 词向量转换
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_1" class="md-nav__link">
+    2.1 语料获取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_1" class="md-nav__link">
+    2.2 词向量词典
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    3. 相似度计算和阈值比较
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_1" class="md-nav__link">
+    3.1 相似度计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32_1" class="md-nav__link">
+    3.2 阈值比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 负载均衡
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 负载均衡介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 负载均衡实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    五、多轮对话系统关键技术设计实现
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    1. 多轮对话配置
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_3" class="md-nav__link">
+    1.1 配置信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_3" class="md-nav__link">
+    1.2 上下文信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    2. 意图识别
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_2" class="md-nav__link">
+    2.1 意图识别介绍
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    3.实体识别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4.对话策略
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    六、测试与结果分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_5" class="md-nav__link">
+    1. 系统环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    2. 算法模型性能测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_4" class="md-nav__link">
+    3. 接口测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      DataMining
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        DataMining
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-1" type="checkbox" id="nav-3-2-1">
+    
+    <label class="md-nav__link" for="nav-3-2-1">
+      Kaggle
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-1">
+        Kaggle
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DataMining/Kaggle/数据基础/" title="数据基础" class="md-nav__link">
+      数据基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DataMining/Kaggle/数据描述/" title="数据描述" class="md-nav__link">
+      数据描述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DataMining/Kaggle/Kaggle学习笔记/" title="Kaggle 学习笔记" class="md-nav__link">
+      Kaggle 学习笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-2" type="checkbox" id="nav-3-2-2">
+    
+    <label class="md-nav__link" for="nav-3-2-2">
+      SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-2">
+        SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DataMining/SQL/SQL学习笔记/" title="MySQL in 3 hours" class="md-nav__link">
+      MySQL in 3 hours
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Basic
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Basic
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-1" type="checkbox" id="nav-3-3-1">
+    
+    <label class="md-nav__link" for="nav-3-3-1">
+      Linux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-1">
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Basic/Linux基础/" title="Linux基础" class="md-nav__link">
+      Linux基础
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3-2" type="checkbox" id="nav-3-3-2">
+    
+    <label class="md-nav__link" for="nav-3-3-2">
+      正则表达式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-3-2">
+        正则表达式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Basic/正则表达式/" title="正则表达式" class="md-nav__link">
+      正则表达式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      生产力工具
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        生产力工具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/iTerm2简明使用教程/" title="iTerm2" class="md-nav__link">
+      iTerm2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/Typora简明使用教程/" title="Typora" class="md-nav__link">
+      Typora
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/Git常用命令清单/" title="常用Git命令" class="md-nav__link">
+      常用Git命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../MacTools/GitHub搜索技巧/" title="GitHub搜索技巧" class="md-nav__link">
+      GitHub搜索技巧
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      作者
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        作者
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/" title="关于作者" class="md-nav__link">
+      关于作者
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    一、研究内容
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 中文文本数据预处理方法的研究。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 单轮对话关键技术的设计和实现。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 基于上下文的多轮对话机制的研究
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    二、相关技术
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1. 中文自然语言处理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 中文分词
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 词向量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2. 深度神经网络
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-cnn" class="md-nav__link">
+    2.1 卷积神经网络CNN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rnn" class="md-nav__link">
+    2.2. 循环神经网络RNN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-restful-api" class="md-nav__link">
+    2.3 RESTful API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    三. 客服机器人系统设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1. 总体架构设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    1.1 客服机器人软件应用结构图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    1.2 客服机器人系统拓扑图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2. 客服机器人系统功能设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 单轮问答系统设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 多轮对话系统设计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3. 数据库设计
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 单轮问答数据库设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 多轮对话数据库设计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    四、单轮问答系统关键技术设计实现
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    1. 文本预处理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_2" class="md-nav__link">
+    1.1 中文分词介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_2" class="md-nav__link">
+    1.2 中文分词实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    2. 词向量转换
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_1" class="md-nav__link">
+    2.1 语料获取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_1" class="md-nav__link">
+    2.2 词向量词典
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    3. 相似度计算和阈值比较
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_1" class="md-nav__link">
+    3.1 相似度计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32_1" class="md-nav__link">
+    3.2 阈值比较
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 负载均衡
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 负载均衡介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 负载均衡实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    五、多轮对话系统关键技术设计实现
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_4" class="md-nav__link">
+    1. 多轮对话配置
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_3" class="md-nav__link">
+    1.1 配置信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_3" class="md-nav__link">
+    1.2 上下文信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    2. 意图识别
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_2" class="md-nav__link">
+    2.1 意图识别介绍
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    3.实体识别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4.对话策略
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    六、测试与结果分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_5" class="md-nav__link">
+    1. 系统环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_5" class="md-nav__link">
+    2. 算法模型性能测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_4" class="md-nav__link">
+    3. 接口测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Rivers19/Blog/edit/master/docs/Tech/AI/Speech/基于特定客服领域对话系统的研究与实现.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="_1">基于特定客服领域对话系统的研究与实现<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">一、研究内容<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>针对基于特定领域的客服机器人涉及到的单轮问答和多轮对话的不同实现方式，进行详细的阐述。并对涉及到的算法进行设计和实现，主要研究内容有以下几个方面： </p>
+<h4 id="1">1. 中文文本数据预处理方法的研究。<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p>根据中文语法和中文文本的特点，本文研究点有：</p>
+<ul>
+<li>研究中文分词方法效果和性能。</li>
+<li>研究中文文本在计算机中的表示方法。</li>
+<li>研究中文文本分类在聊天机器人中的应用。 </li>
+</ul>
+<h4 id="2">2. 单轮对话关键技术的设计和实现。<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<p>根据不同领域的客服机器人的特点，研究特定领域知识库的构建方法，根据单轮对话的特性不断优化知识库和算法的设计。并进行性能测试。 </p>
+<h4 id="3">3. 基于上下文的多轮对话机制的研究<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<p>在提供一问一答能力的基础上，尝试研究带有上下文信息的多轮对话机制的实现方法，主要研究以下几点：</p>
+<ul>
+<li>针对中文对话中意图识别的研究 </li>
+<li>中文文本中实体提取的研究。</li>
+<li>如何将各个算法有机地集成到一起。</li>
+</ul>
+<h2 id="_3">二、相关技术<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">1. 中文自然语言处理<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<h4 id="11">1.1 中文分词<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<p>三大方向：</p>
+<ul>
+<li><strong>基于词典的分词方法</strong> ，这种方法是一种较为传统的分词方法。将语料中的单词串和人工标记的词典进行一一地比较，如果可以在标记中找到该单词串，则认为可以进行分词，反之不可以进行分词。<ul>
+<li>优点：这种方法虽然是一种比较机械的方法，但是实现比较简单而且实用性比较强。</li>
+<li>缺点：有制约条件，词典的完备性成为这种方法的一个巨大的瓶颈，统计可以得出，一个七万词的词典去切分一万五千词的文章，仍然有三分之一以上的单词不能被切分出来。 </li>
+</ul>
+</li>
+<li><strong>基于语法分析的分词方法</strong> ，这种方法的思想就是分词的时候同时进行语法的分析，利用语义规则进行词性标注，从而可以解决分词时出现歧义的问题。<ul>
+<li>优点：解决分词时的歧义问题</li>
+<li>缺点：中国文字博大精深，存在的语法知识，句法知识等十分的庞杂，这种方法还没有达到令人满意的
+    效果。 </li>
+</ul>
+</li>
+<li><strong>基于统计的分词方法</strong> ，这种方法的原理就是根据某个高频词在文档中出现的次数来认定该单词能否进行分词。<ul>
+<li>优点：汉字相邻的频率可以很好的反映他们是否可以进行分词。中文单词其实就是汉字的一种组合，相邻字符出现的次数多了以后，就越有可能组成一个单词。</li>
+</ul>
+</li>
+</ul>
+<h4 id="12">1.2 词向量<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
+<ul>
+<li>用数学向量表示单词</li>
+<li><strong>One-Hot</strong> ：把每个单词都表示成一个多维的向量，这个向量的维度就是词典的大小。该向量绝大多数维度的值都是零，只有其中的一个维度的值为 1，而这个维度就表示为该向量代表的单词。<ul>
+<li>优点：表达直观</li>
+<li>缺点：在处理一些涉及大词典、近义词等应用中无法达到预想效果<ul>
+<li>维度灾难：词典越大，需要表示的向量也就越多，相应地词向量维度也就越大，维度灾难就随之而来；</li>
+<li>基于错误的假设： One-Hot 方式是基于这样一种假设，假设任意两个词之间是没有任何关系的，很显然这个假设是错误的。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>词向量的分布式表达</strong> ：<ul>
+<li>优点：克服了Ont-Hot 的两大缺陷。将文本中的每一个词语映射为向量空间一个固定维度的向量，这个向量的维度不会随着词典的增大而增大，而且这个维度可以根据语料规模自定义。这些词向量组成了一个向量空间，每个词向量都可以映射为空间的某一个点，这两点之间的距离，可简单看作两个词的相似度。 </li>
+</ul>
+</li>
+</ul>
+<h3 id="2_1">2. 深度神经网络<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<h4 id="21-cnn">2.1 卷积神经网络CNN<a class="headerlink" href="#21-cnn" title="Permanent link">&para;</a></h4>
+<ul>
+<li>与普通神经网络非常相似，由具有可训练的权重和偏移的神经元组成。每个神经元接收一些输入，执行一个卷积，并使用非线性函数激活它。</li>
+<li>整个网络仍然表现出一个单一的非线性分数函数：从一端的原始数据特征到另一端的类得分。</li>
+<li>在最后一层（全连接层）上仍然有一个损失函数，规则神经网络开发的所有技巧仍然适用。 </li>
+<li>简单的卷积神经网络是一系列的层结构，每一层都通过一个可微分函数将一个激活量转换为另一个激活量。</li>
+<li>
+<p>一般由三种主要类型的层次结构来构成卷积神经网络：卷积层，池化层和全连接层。</p>
+</li>
+<li>
+<p>卷积层是卷积神经网络的核心组成部分，它进行了大量卷积计算。卷积层的参数由多个可训练的过滤器组成。这个过滤器也叫做卷积核。每个卷积核在维度上（沿纵轴和横轴）都很小，但会延伸到输入的整个深度。</p>
+<p><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-12-083453.png" alt="image-20200412163453691" style="zoom:67%;" /></p>
+</li>
+<li>
+<p>池化层也是卷积神经网络中不可缺少的组成部分。在卷积神经网络体系结构中，在卷积层和卷积层间插入池化层是很普遍的。池化层的功能是减小特征的空间大小，以降低模型中计算量和参数量，并且控制过拟合。池化操作在输入的每个特征空间单独运行，并使用最大值池化过程在维度上调整大小。</p>
+<p><img alt="image-20200412163423318" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-14-043515.png" /></p>
+</li>
+</ul>
+<h4 id="22-rnn">2.2. 循环神经网络RNN<a class="headerlink" href="#22-rnn" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>和传统神经网络有一些区别：</p>
+<ul>
+<li>
+<p>传统神经网络以及上文提到的卷积神经网络中，网络结构都是分为若干层的，k 层中神经元只接受第 k-1 层神经元发出的激活信号，各神经元之间并没有反馈信息，而且必须接受固定大小的数据，产生固定大小的输出。</p>
+<ul>
+<li>传统神经网络优点：在无序定长的问题上是有很大的优势的。使用越多的隐层节点就可以更多的获取输入的信息，就能更好的处理特定的任务。</li>
+<li>传统神经网络缺点：传统前馈式神经网络无法针对那种具有一定序列性数据进行有效的学习。</li>
+</ul>
+</li>
+<li>
+<p>RNN 与这种前馈式的神经网络有很大的区别： RNN 只处理单一的输入单元以及上一个时间点的隐层信息。这使得 RNN 可以动态的获取输入信息，而且不受固定长度的制约。 </p>
+</li>
+<li>
+<p>RNN 一个最大的特点：可以记忆之前的学习内容，并利用之前的信息对当前神经元产生影响。</p>
+</li>
+<li>
+<p>循环神经网络和前馈式神经网络不同的是在网络中增加了一个循环的结构。这样一来隐层单元某时刻的状态不仅和当前输入有关，还可以利用当前时刻之前的输出，这就可以针对呈现序列性的数据进行有效的处理。</p>
+</li>
+<li>
+<p>文本信息就有着很强的序列性，而实际证明循环神经网络及其变种在 NLP 领域中取得了巨大的成功。 </p>
+</li>
+<li>
+<p>图 2.3 展示了一个循环神经网络以及其展开的结构图，可以看到每一层的节点都会收到两个输入即前一状态的输出和当前状态的输入，即每一层神经元节点都不仅仅与当前输入状态有关，而且和前面的输入状态有关。这也就是循环神经网络的一个重要的特点。 </p>
+<p><img alt="image-20200412171759262" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-12-091759.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="23-restful-api">2.3 RESTful API<a class="headerlink" href="#23-restful-api" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://restfulapi.net/">REST API Tutorial</a></li>
+<li><a href="https://www.runoob.com/w3cnote/restful-architecture.html">RESTful架构详解</a></li>
+</ul>
+<h2 id="_4">三. 客服机器人系统设计<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1_2">1. 总体架构设计<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<h4 id="11_1">1.1 客服机器人软件应用结构图<a class="headerlink" href="#11_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>系统软件体系结构：</li>
+</ul>
+<p><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-12-131209.png" alt="image-20200412211209362 " style="zoom: 40%;" /></p>
+<ul>
+<li>
+<p>引擎分层结构：</p>
+<p><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-12-131734.png" alt="image-20200412211734289" style="zoom:40%;" /></p>
+</li>
+<li>
+<p>系统架构图</p>
+<p><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-12-134354.png" alt="image-20200412214354149" style="zoom:30%;" /></p>
+</li>
+</ul>
+<h4 id="12_1">1.2 客服机器人系统拓扑图<a class="headerlink" href="#12_1" title="Permanent link">&para;</a></h4>
+<p><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-12-142314.png" alt="image-20200412222314082" style="zoom:40%;" /></p>
+<h3 id="2_2">2. 客服机器人系统功能设计<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<h4 id="21">2.1 单轮问答系统设计<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>比如一些常见问题的回答，和重复性很大的问题的回答。单轮问答主要由文本预处理模块和相似度计算模块，在相似度计算模块中需要预先准备词向量词典。这两个模块主要包块分词，词向量转换，相似度计算，阈值比较等核心功能</p>
+</li>
+<li>
+<p>功能模块：</p>
+<p><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-12-143509.png" alt="image-20200412223509140" style="zoom:33%;" /></p>
+</li>
+</ul>
+<h4 id="22">2.2 多轮对话系统设计<a class="headerlink" href="#22" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>多轮对话流程：</p>
+<p><img alt="image-20200413193217379" src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-13-113217.png" /></p>
+<ul>
+<li>
+<p>用户要首先针对业务进行配置，其中配置文件可以选择 JSON 格式或者 XML 格式。这里需要说明的是，用户配置完成了以后，在业务不变的情况下，不需要再次配置，因为系统会将用户首次配置的信息以一棵树的形式存储起来。多轮对话配置好后，就可以针对配置的多轮对话进行对话测试。获取用户输入，通过训练好的意图识别和实体识别模型进行相应的意图识别和实体识别，识别完成后接着进行关键词槽的填充，填充完场后就可以根据对话获取的消息进行查库操作或者调用 API 的操作，查库或者调用 API 是最方便和业务有机结合起来的方式。 </p>
+</li>
+<li>
+<p>多论对话配置信息分为工作域，实体，意图和会话节点信息。其中工作域代表了该多轮对话的配置信息属于哪一个分类，每个租户可能有多个多轮对话，如高校，其中可能有招生方面的多轮对话业务，也可能有财务方面的多轮对话业务。设置工作域首先方便分类，还有就是方便上线和下线某个领域内的多轮对话业务。意图信息存储的就是识别什么样的意图才会命中这个多轮对话，而实体信息则表示需要用户提供哪些实体信息来填充词槽，如查询成绩中的省份就代表了其中的一个插槽。最后，会话节点则是唯一表示了这个多轮对话的配置信息，方便节点的识别和跳转等功能。 意图识别和实体识别是多轮对话模块中的核心算法，通过对用户意图进行分类，命中多轮对话节点，多轮对话节点通过实体识别完成槽位填充。</p>
+</li>
+<li><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-13-152710.png" alt="image-20200413232710212" style="zoom:40%;" /><ul>
+<li>当获取到所有需要的信息后，按照预先设定的方法去查询数据库或者调用业务相关的 API 得到最终的答案。这里的 API 可以是网上公开的一些调用接口，比如天气预报的查询等，或者是自己写的业务逻辑封装成 RESTful API，通过多轮对话系统获取 API 所需要的参数，得到相应的回复</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3_1">3. 数据库设计<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<h4 id="31">3.1 单轮问答数据库设计<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>
+<ul>
+<li>faq表：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>主键、自增、必填</td>
+</tr>
+<tr>
+<td>question</td>
+<td>varchar</td>
+<td>必填</td>
+</tr>
+<tr>
+<td>answer</td>
+<td>varchar</td>
+<td>必填</td>
+</tr>
+<tr>
+<td>tenant</td>
+<td>varchar</td>
+<td>必填</td>
+</tr>
+<tr>
+<td>high</td>
+<td>varchar</td>
+<td>必填</td>
+</tr>
+<tr>
+<td>low</td>
+<td>varchar</td>
+<td>必填</td>
+</tr>
+</tbody>
+</table>
+<h4 id="32">3.2 多轮对话数据库设计<a class="headerlink" href="#32" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Intent表</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>主键、自增、必填</td>
+</tr>
+<tr>
+<td>name</td>
+<td>varchar</td>
+<td>必填</td>
+</tr>
+<tr>
+<td>description</td>
+<td>varchar</td>
+<td>缺省：无描述</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Intent_example表</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>主键、自增、必填</td>
+</tr>
+<tr>
+<td>example</td>
+<td>varchar</td>
+<td>必填</td>
+</tr>
+<tr>
+<td>entities</td>
+<td>varchar</td>
+<td>必填，存的是意图数组</td>
+</tr>
+<tr>
+<td>Intent_id</td>
+<td>int</td>
+<td>必填，外键</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>entity_example表</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>example_id</td>
+<td>int</td>
+<td>主键、自增、必填</td>
+</tr>
+<tr>
+<td>value</td>
+<td>varchar</td>
+<td>必填</td>
+</tr>
+<tr>
+<td>synonyms</td>
+<td>varchar</td>
+<td>必填，存的是意图数组</td>
+</tr>
+<tr>
+<td>entity_id</td>
+<td>int</td>
+<td>必填，外键</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">四、单轮问答系统关键技术设计实现<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="1_3">1. 文本预处理<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h3>
+<h4 id="11_2">1.1 中文分词介绍<a class="headerlink" href="#11_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>中文分词领域尚且存在的问题：<ul>
+<li>中文消歧</li>
+<li>专有名词识别：人名、地名、机构名</li>
+<li>新词：城会玩</li>
+</ul>
+</li>
+</ul>
+<h4 id="12_2">1.2 中文分词实现<a class="headerlink" href="#12_2" title="Permanent link">&para;</a></h4>
+<p>目前常见的开源分词工具主要有 Jieba 分词工具，HanLP 分词工具，THUOCL 分词工具，Pkuseg[20]分词工具以及 FoolNLTK[21]分词工具。</p>
+<ul>
+<li><strong>Jieba：</strong><ul>
+<li>Jieba 分词是在 Github 开源的一款分词工具主要用到的算法如下： <ul>
+<li>基于词典实现高效的单词构图扫描，生成句子中汉字成词情况所构成的 DAG。 </li>
+<li>利用动态规划算法查询到最大概率路径,并寻找出基于频率的最大切分组合。 </li>
+<li>对于未出现的单词，采用了基于隐马尔可夫模型，并且使用了 Viterbi  算法。 </li>
+</ul>
+</li>
+<li>Jieba 分词号称要做最好的 Python 中文分词组件，现在也支持了很多其他语言。其主要支持三种分词模式，精确模式，全模式和搜索引擎模式。其中适合文本分析的模式就是精确模式。</li>
+<li>Jieba 分词支持 Python 语言，只需要将源码从 Github 上面下载下来，编译 setup.py 文件即可。使用方法和使用内置包的方法一样简单。引用 Jieba 工具即可。</li>
+<li>Jieba 分词工具的功能非常丰富，除了分词功能之外还支持用户添加自定义词典这样方便一些专有名词进行分词。还提供关键词提取和词性标注的功能。本文中只需要使用分词的基本功能。 </li>
+</ul>
+</li>
+<li><strong>HanLP</strong> ：<ul>
+<li>是一系列模型和算法组成的 NLP 工具包，其支持中文分词，情感分析，词性标准，命名实体识别，文本摘要以及拼音转换等等功能。其开源的目的是可以让自然语言处理能够在生产环境中得到应用。HanLP 具有功能完善，高效，架构清晰，可自定义的特点。 </li>
+<li>本文主要应用的是HanLP的分词功能，其分词功能又可以分为三个不同的模式，分别是 HMM-Bigram，由字构词以及词典分词。</li>
+<li>HMM-Bigram 模式是速度和精度最佳平衡的模式，词典分词模式则侧重于速度，针对那些需要高效完成的任务可以使用这种模式，由字构词这种模式，凭借着巨大的语料库可以做到极致的精度，并且可以识别新词适合大量 NLP 任务。 </li>
+</ul>
+</li>
+</ul>
+<h3 id="2_3">2. 词向量转换<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h3>
+<h4 id="21_1">2.1 语料获取<a class="headerlink" href="#21_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>爬虫工具：常见的开源爬虫工具也有很多，如基于 Java 语言的 Nutch，基于 Python 的 Pyspider 和 Scrapy框架。 </p>
+<p><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-13-155841.png" alt="image-20200413235840459" style="zoom:40%;" /></p>
+</li>
+<li>
+<p>爬虫策略：根据网页布局确定爬取内容有哪些 HTML 控件组成。根据 HTML 源代码分析该网页又连接到哪些 URL，根据预先设定的 URL 规则将其添加到待抓取 URL 队列中，等待进行抓取。</p>
+</li>
+</ul>
+<h4 id="22_1">2.2 词向量词典<a class="headerlink" href="#22_1" title="Permanent link">&para;</a></h4>
+<p>为了提高词向量转换的效率，本文预先训练一个完备的词典。这样一来，首先避免了扩充知识库时再次训练词向量的时间消耗，而且使用词向量词典，使得相似度计算时精度更高</p>
+<ul>
+<li>
+<p><strong>Word2vec</strong> :</p>
+<ul>
+<li>它的特点就是将单词转换为向量的模式，使得单词和单词之间可以定量的去度量它们之间的关系，挖掘深层次的联系。Word2vec 利用了深度学习思想，将文本数据处理成 N 维向量空间的向量。</li>
+<li>Word2vec 包括了两种训练词向量的模型CBOW 模型和 Skip-gram 模型。</li>
+</ul>
+<p><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-13-160310.png" alt="image-20200414000310174" style="zoom:40%;" /></p>
+<ul>
+<li>CBOW和Skip-gram异同点：<ul>
+<li>相同：<ul>
+<li>两者都是利用了神经网络作为分类算法，最开始每个单词都对应一个 N维向量，经过神经网络的训练后，通过 CBOW 算法或者通过 Skip-gram 算法求得每个向量的最优值。</li>
+<li>两种模型的计算都是基于霍夫曼树，其中霍夫曼树的叶子节点的作用是可以作为是神经网络的输出层神经元。其叶子的个数就代表了词汇表的大小。（<em>霍夫曼树的特点就是权重越高的节点会越靠近根节点，这样一来其编码值也短。这样也符合一般设定，出现频率高的单词编码较短。</em>）</li>
+</ul>
+</li>
+<li>不同：两种模型在架构设计和模型训练方面都不尽相同。其中，CBOW 的目标是通过上下文来预测当前词语的概率，而 Skip-gram 正好相反，它是根据当前单词来预测上下文的概率。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>FastText</strong> ：</p>
+<ul>
+<li>与Wordv2ec异同：<ul>
+<li>相同：<ul>
+<li>从 Word2vec 的 CBOW 模型演变而来，两者网络结构相似，都包含了三层结构，输入层，隐层和输出层。输入都是多个单词的词向量，隐层也都是多个词向量叠加后的平均值。从网络结构看，两者基本上是一致的。</li>
+<li>公式推导和分层 Softmax思想和 CBOW 也都一致。</li>
+</ul>
+</li>
+<li>不同：CBOW 输入层只有中心词在特征窗口中的上下文单词，而 FastText 除了这些单词之外，还包含了这些单词 N-gram 字符级别的特征；另外一个不同点是 CBOW 的输出是当前中心词，FastText 的输出是文本对应的类别。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>词向量训练流程：</strong></p>
+<p><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-13-161601.png" alt="image-20200414001601088" style="zoom:40%;" /></p>
+</li>
+</ul>
+<h3 id="3_2">3. 相似度计算和阈值比较<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h3>
+<h4 id="31_1">3.1 相似度计算<a class="headerlink" href="#31_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>语句相似度：指的是在中文语料中，两句话在语义上的相似程度。相似的大小是在[0,1]之间的数值。相似度越接近 1 就表示两句话的在语义上的相似度越大，相反地，相似度越接近 0 则表示了两句话在语义上的相似度越小</p>
+</li>
+<li>
+<p>词向量相似度计算方法：有编辑距离相似度计算，Jaccard 系数相似度计算，TFIDF[25]相似度计算，BM25相似度计算以及 Cosine（余弦）相似度计算等。</p>
+</li>
+<li>
+<p>语句向量计算方法：本文采用直接将组成该句子的所有有效单词的词向量直接相加获取对应的句向量。</p>
+<p><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-13-162322.png" alt="image-20200414002322059" style="zoom:33%;" /></p>
+</li>
+<li>
+<p>语句相似度计算方法：余弦相似度</p>
+</li>
+</ul>
+<h4 id="32_1">3.2 阈值比较<a class="headerlink" href="#32_1" title="Permanent link">&para;</a></h4>
+<p>获取到知识库中每个问题和用户输入问题的相似度以后，究竟哪个问题的答案可以作为机器人最终的回答返回，这里就需要阈值比较来决定。</p>
+<ul>
+<li>阈值获取：为了获取阈值，预先加载知识库，并从知识库中挑选 100 个问题，并列出其相似问法，作为正例。另外准备 100 个不存在知识库中的问题，作为反例。准备好问题后将问题顺序放入到系统中，并依次获取规律就可以获取阈值。</li>
+</ul>
+<p><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-13-162656.png" alt="image-20200414002655952" style="zoom:33%;" /></p>
+<ul>
+<li>可以看到正确命中知识库问题的相似度和错误命中的分界线大致为 0.977，所以就将数值 0.977 作为系统相似度阈值。因为知识库虽然不同，但是向量空间中余弦相似度计算呈现一定的规律，所以可以将 0.977 作为不同知识库的阈值，经试验可知该数值可行。同时系统阈值也支持用户自定义，这里只提供一个经过试验产生的默认值。</li>
+</ul>
+<h3 id="4">4. 负载均衡<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>为了有效的提供稳定的服务，可以在不同的服务器上进行部署。通过多个服务器节点提供服务。这样就需要通过负载均衡的服务器进行分分流，</p>
+<h4 id="41">4.1 负载均衡介绍<a class="headerlink" href="#41" title="Permanent link">&para;</a></h4>
+<ul>
+<li>最早的时候，是利用 DNS 做负载，通过给客户端解析不同的 IP 地址，使得客户端流量可以直连服务器，但是 DNS 的负载策略比较简单无法满足业务需求，负载均衡应运而生。客户端发出的请求会首先到达负载均衡服务器，由它通过一定的负载均衡调度算法将流量合理的分配到不同的服务器节点上面。 </li>
+<li>负载均衡的算法在一定程度上决定了负载均衡服务器的性能，常见的负载均衡算法有以下几种： <ul>
+<li><strong>随机算法</strong> :随机算法，其实是一种按照权重设置随机的策略，这种算法在调用量越大的时候其分布就越均匀。这种方法实现较为简单有效，并且可以根据需要动态的调整权重。 </li>
+<li><strong>轮询算法</strong>  :常用轮询算法主要普通轮询算法和加权轮询算法。在各个服务器的计算能力差异不大的时候，就很适合普通的轮询算法。普通轮询算法容易出现较慢的机器累计请求的情况。这就有了加权轮询算法，给提供服务的每个服务器节点附一个权重，计算能力强的服务器就可以加大权重，能力弱的服务器减小权重。 </li>
+<li><strong>IP 地址哈希</strong> : 通过用户请求 IP 地址和目的 IP 地址进行哈希值计算，这种算法可以解决动态页面共享 Session 的问题，特定 IP 可以固定的访问同一个后端服务器。 负载均衡的实现也有很多，常见的有 DNS 解析负载均衡，LVS 负载均衡，IP 负
+    载均衡，HTTP 重定向负载均衡以及反向代理负载均衡。本文使用的是反向代理负载均衡。 </li>
+</ul>
+</li>
+</ul>
+<h4 id="42">4.2 负载均衡实现<a class="headerlink" href="#42" title="Permanent link">&para;</a></h4>
+<p><img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-13-164122.png" alt="image-20200414004121831" style="zoom: 40%;" /></p>
+<ul>
+<li>
+<p>本文使用反向代理负载均衡，对用户流量进行合理的分流。通常的代理服务器用 于代理内网对因特网的连接请求。而 <strong>反向代理</strong> 指的是用代理服务器来接受来自因特尔上的请求，然后将来自互联网的请求转发到内部网络的服务器节点上，并将结果返回给发出请求的客户端。本文所用到的反向代理工具是 Nginx。 </p>
+</li>
+<li>
+<p>Gunicorn是一款轻量级，高性能的 HTTP 服务器，使用简单，无需配置，只需要简单的指令即可，指令示例如“gunicorn -w 4 -b 127.0.0.1:8080 filepath:app”。其中参数 w 表示了服务器启动的进程数量，参数 b 则表示了 Flask 应用映射的 IP 地址和端口，filepath 则表示了 Flask 文件的路径，app 表示 Flask 实例化对象。 启动服务后，服务器就会自动监听 5000 端口，并开放 5000 端口作为 Nginx 连接。Nginx 服务器需要进行安装和配置，配置文件如下所示：</p>
+<div class="codehilite"><pre><span></span><span class="k">upstream</span> <span class="s">flask</span> <span class="p">{</span> 
+         <span class="kn">server</span> <span class="n">38.265.23.111</span><span class="p">:</span><span class="mi">5000</span><span class="p">;</span> 
+         <span class="kn">server</span> <span class="n">38.265.23.112</span><span class="p">:</span><span class="mi">5000</span><span class="p">;</span> <span class="p">}</span> 
+<span class="k">server</span> <span class="p">{</span> 
+         <span class="kn">listen</span>   <span class="mi">80</span> <span class="s">default_server</span><span class="p">;</span> 
+         <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span> 
+                 <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:5000</span><span class="p">;</span>  
+                 <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span> 
+                 <span class="kn">proxy_set_header</span> <span class="s">X-Real-IP</span> <span class="nv">$remote_addr</span><span class="p">;}}</span> 
+</pre></div>
+
+</li>
+</ul>
+<h2 id="_6">五、多轮对话系统关键技术设计实现<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="1_4">1. 多轮对话配置<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h3>
+<h4 id="11_3">1.1 配置信息<a class="headerlink" href="#11_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>使用JSON</strong> ： 其优势在于，</p>
+<ul>
+<li>几乎所有的语言都有与之对应的数据结构。</li>
+<li>JSON 数据格式比较简单，表示方法也比较简洁，读写效率高，用到的带宽也比较小。</li>
+<li>上手比较容易，有跨语言的特性。很多应用场景都有它的身影，如 Web 应用前后端通信，移动端 Android 和 IOS 开发都是后台语言提供 JSON 接口，移动端读取接口的方式。</li>
+</ul>
+</li>
+<li>
+<p><strong>多轮对话的配置信息</strong> ：主要包括，工作域，实体信息，意图信息和会话节点信息。</p>
+<ul>
+<li>工作域其实就是一个多轮对话的分类</li>
+<li>实体信息就是该多轮对话配置信息中有哪些实体，确切来说是需要填充哪些实体的槽位</li>
+<li>意图信息就是该多轮对话可以由哪些意图命中</li>
+<li>节点信息主要和配置信息的存储有关</li>
+</ul>
+</li>
+<li>
+<p>通过配置多轮对话信息，可以方便进行自定义的配置，同时也方便了多轮对话引擎对多轮对话配置信息的存储。每一个需要通过多轮对话解决的业务场景都需要一个配置模型，通过解析该配置模型，配合上下文信息记录的用户状态，就可以通过多轮对话解决问题。 </p>
+</li>
+<li>
+<p>对话流对于多轮对话来说至关重要，多轮对话中“多轮”的实现和对话流密不可分。</p>
+</li>
+<li>对话流需要一个合适的数据结构来存储，既可以表示层次关系，又节省一定的空间。本文选择使用树结构来存储对话流信息。</li>
+</ul>
+<p>​       <img src="https://rivers19-1300325434.cos.ap-beijing.myqcloud.com/2020-04-14-042423.png" alt="image-20200414122422726" style="zoom: 40%;" /></p>
+<h4 id="12_3">1.2 上下文信息<a class="headerlink" href="#12_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>多轮对话需要记录用户对话的上下文信息。上下文信息也是实现多轮对话系统必不可少的部分。上下文信息不仅表示了用户对话的当前状态，<mark>还存储着用户前几轮对话中重要的状态和信息</mark>。<ul>
+<li>存储着当前状态和前几轮的对话状态。</li>
+<li>设计上下文信息，需要明确多轮对话系统需要存储哪些有用的数据，同时明确系统又需要获取哪些信息。只有明确了这些，才能够明确上下文信息中应该包含哪些重要的数据。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2_4">2. 意图识别<a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h3>
+<h4 id="21_2">2.1 意图识别介绍<a class="headerlink" href="#21_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>意图识别就是通过用户输入进行自然语言处理，获取用户意图的过程。本文所提到的意图识别其实是基于文本分类模型的意图识别</li>
+<li>落地的算法：<ul>
+<li>传统文本分类：主要由特征工程和分类器组成。（特征工程不像分类器模型有很强的普适性，针对不同的数据，其特征也不尽相同。所以往往要结合特定特征任务的理解。）</li>
+<li>深度学习文本分类：</li>
+</ul>
+</li>
+</ul>
+<h3 id="3_3">3.实体识别<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h3>
+<h3 id="4_1">4.对话策略<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<h2 id="_7">六、测试与结果分析<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="1_5">1. 系统环境<a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h3>
+<h3 id="2_5">2. 算法模型性能测试<a class="headerlink" href="#2_5" title="Permanent link">&para;</a></h3>
+<h3 id="3_4">3. 接口测试<a class="headerlink" href="#3_4" title="Permanent link">&para;</a></h3>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../语音交互基础/" title="语音交互基础" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                语音交互基础
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../DataMining/Kaggle/数据基础/" title="数据基础" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                数据基础
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            <a href='http://www.beian.miit.gov.cn'target='_blank'>京ICP备19046279号-1</a>
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
+      
+        
+        
+          
+          <script src="../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../js/extra.js"></script>
+      
+        <script src="../../../../js/baidu-tongji.js"></script>
+      
+        <script src="../../../../js/umlconvert.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+    
+  </body>
+</html>
